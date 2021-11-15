@@ -27,6 +27,14 @@ Route::get('hello', function () {
     return view('login');
 });
 
+Route::get('Login Influencer', function () {
+    return view('loginInfluencer');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -16,8 +16,9 @@ class Entrepreneurs extends Migration
         Schema::create('entrepreneurs', function (Blueprint $table) {
             $table->bigIncrements('id_entrepreneur');
             $table->unsignedBigInteger('id_user')->nullable();
-            $table->foreign('id_user')->references('id')->on('users')->onDelete();
-            $table->integer('id_company')->nullable();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('set null');
+            $table->unsignedBigInteger('id_company')->nullable();
+            $table->foreign('id_company')->references('id_company')->on('companies')->onDelete('set null');
             $table->timestamp('started_on')->nullable();
         });
     }

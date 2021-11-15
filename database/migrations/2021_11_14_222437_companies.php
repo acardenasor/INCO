@@ -15,8 +15,6 @@ class Companies extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id_company');
-            $table->unsignedBigInteger('id_entrepreneur')->nullable();
-            $table->foreign('id_entrepreneur')->references('id_entrepreneur')->on('entrepreneurs')->onDelete('set null');
             $table->string('name',100);
             $table->text('description');
             $table->unsignedBigInteger('category')->nullable();

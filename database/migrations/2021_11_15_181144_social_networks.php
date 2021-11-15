@@ -13,6 +13,7 @@ class SocialNetworks extends Migration
      */
     public function up()
     {
+        
         Schema::create('social_networks', function (Blueprint $table) {
             $table->bigIncrements('id_social_network');
             $table->unsignedBigInteger('id_influencer')->nullable();

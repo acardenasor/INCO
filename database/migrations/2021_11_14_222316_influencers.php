@@ -15,7 +15,7 @@ class Influencers extends Migration
     {
         Schema::create('influencers', function (Blueprint $table) {
             $table->bigIncrements('id_influencer');
-            $table->unsignedBigInteger('id_user')->nullable();
+            $table->unsignedBigInteger('id_user')->unique()->nullable();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('set null');
             $table->unsignedBigInteger('category')->nullable();
             $table->foreign('category')->references('id_category')->on('categories')->onDelete('set null');

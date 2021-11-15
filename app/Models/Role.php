@@ -10,4 +10,9 @@ class Role extends Model
     use HasFactory;
 
     protected $table = "roles";
+
+    //Relation one to many role-users
+    public function users(){
+        return $this->hasMany('App\Models\User');
+    }
 }

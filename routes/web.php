@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    /*return view('welcomegg');*/
-    return "Bienvenidos";
+    return view('login');
 });
+
+//Provisinal prove
+Route::get('Login Company', function () {
+    return view('loginCompany');
+});
+

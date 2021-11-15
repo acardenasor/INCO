@@ -15,8 +15,8 @@ class SocialNetworks extends Migration
     {
         Schema::create('social_networks', function (Blueprint $table) {
             $table->bigIncrements('id_social_network');
-            $table->unsignedBigInteger('id_influencer');
-            $table->foreign('id_influencer')->references('id_influencer')->on('influencers');
+            $table->unsignedBigInteger('id_influencer')->nullable();
+            $table->foreign('id_influencer')->references('id_influencer')->on('influencers')->onDelete('set null');
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();

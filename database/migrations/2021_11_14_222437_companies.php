@@ -15,12 +15,12 @@ class Companies extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id_company');
-            $table->unsignedBigInteger('id_entrepreneur');
-            $table->foreign('id_entrepreneur')->references('id_entrepreneur')->on('entrepreneurs');
+            $table->unsignedBigInteger('id_entrepreneur')->nullable();
+            $table->foreign('id_entrepreneur')->references('id_entrepreneur')->on('entrepreneurs')->onDelete('set null');
             $table->string('name',100);
             $table->text('description');
-            $table->unsignedBigInteger('category');
-            $table->foreign('category')->references('id_category')->on('categories');
+            $table->unsignedBigInteger('category')->nullable();
+            $table->foreign('category')->references('id_category')->on('categories')->onDelete('set null');
             $table->integer('nit');
             $table->string('address');
             $table->string('web_domain');

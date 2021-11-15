@@ -12,8 +12,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!--Css Style-->
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
     <!--We need to fix how to connect media file between css and php and also with js files-->
-    <style> 
+    <!-- <style> 
         body{
             background: -webkit-linear-gradient(left, #3931af, #00c6ff);
         }
@@ -113,7 +114,7 @@
             margin-bottom: -15%;
             color: #495057;
         }
-    </style>
+    </style> -->
 
     <!--Vue script-->
     <script src="./js/vue.js"></script>

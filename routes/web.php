@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('welcome');
 });
 
 //Provisinal prove
@@ -22,3 +22,11 @@ Route::get('Login Company', function () {
     return view('loginCompany');
 });
 
+//Provisinal prove
+Route::get('hello', function () {
+    return view('login');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -38,16 +38,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control"  placeholder="Red Social*" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control"  placeholder="Seguidores*" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Usuario*" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Cédula*" value="" />
-                                                </div>
+                                                </div>                 
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" placeholder="URL Perfil" value="" />
                                                 </div>
@@ -60,17 +51,8 @@
                                                     <input type="text" class="form-control" placeholder="categoria*" value="" />
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="email" class="form-control" placeholder="Correo*" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Celular*" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text"  name="txtEmpPhone" class="form-control" placeholder="dropzone *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text"  name="txtEmpPhone" class="form-control" placeholder="dropzone *" value="" />
-                                                </div>
+                                                    <input type="email" class="form-control" placeholder="Experencia previa" value="" />
+                                                </div>                                                
                                                 <input type="submit" class="btnRegister"  value="Register"/>
                                             </div>
                                         </div>

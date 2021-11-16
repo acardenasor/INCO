@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,21 +21,27 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::post('user/register', [LoginController::class, 'storeUser'])->name('register-store');
+Route::post('company/register', [LoginController::class, 'storeCompany'])->name('register-company');
+Route::post('influencer/register', [LoginController::class, 'storeInfluencer'])->name('register-influencer');
+
 //Company Login
-Route::get('login company', function () {
+Route::get('login/company', function () {
     return view('loginCompany');
-});
+})->name('login-company');
 
 //Influencer Login
-Route::get('login influencer', function () {
+Route::get('login/influencer', function () {
     return view('loginInfluencer');
-});
+})->name('login-influencer');
 
 
 Route::get('qwertyuiop', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -10,6 +10,7 @@ class User extends Model
     use HasFactory;
 
     protected $table = "users";
+    protected $fillable = ['name_user', 'name', 'last_name', 'password', 'gender', 'email', 'CC', 'role'];
 
     //Relation one to many role-users (inverse)
     public function role(){

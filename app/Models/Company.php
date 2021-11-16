@@ -10,7 +10,9 @@ class Company extends Model
     use HasFactory;
 
     protected $table = "companies";
+    protected $fillable = ['name', 'nit', 'web_domain', 'address', 'description', 'category', 'email', 'contact_number'];
 
+    public $timestamps = false;
     
     //Relation one to many company-enterpreneurs
     public function entrepreneurs() {

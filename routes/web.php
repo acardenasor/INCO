@@ -13,27 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//Main Login 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-//Provisinal prove
-Route::get('Login Company', function () {
-    return view('loginCompany');
-});
-
-//Provisinal prove
-Route::get('hello', function () {
     return view('login');
 });
 
-Route::get('Login Influencer', function () {
+//Company Login
+Route::get('login company', function () {
+    return view('loginCompany');
+});
+
+//Influencer Login
+Route::get('login influencer', function () {
     return view('loginInfluencer');
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('qwertyuiop', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 

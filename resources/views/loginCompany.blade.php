@@ -34,43 +34,46 @@
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <h3 class="register-heading">Apply as a Enterprise</h3>
-                                        <div class="row register-form">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Company Name *" value="" />
+                                        <form action="{{route('register-company')}}" method="POST">
+                                            @csrf
+                                            <div class="row register-form">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Company Name *" value="" name="name"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="NIT *" value="" name="nit"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Web Domain " value="" name="web_domain"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control"  placeholder="Address" value="" name="address"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <textarea type="text" class="form-control"  placeholder="Description" value="" name="description"></textarea>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="NIT *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Web Domain " value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control"  placeholder="Address" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <textarea type="text" class="form-control"  placeholder="Description" value=""></textarea>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="categories *" value="" name="category"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" placeholder="Your Email *" value="" name="email"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" minlength="10" maxlength="10"  class="form-control" placeholder="Your Phone *" value="" name="contact_number"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text"  name="txtEmpPhone" class="form-control" placeholder="dropzone *" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text"  name="txtEmpPhone" class="form-control" placeholder="dropzone *" value="" />
+                                                    </div>
+                                                    <input type="submit" class="btnRegister"  value="Register"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="categories *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text"  name="txtEmpPhone" class="form-control" placeholder="dropzone *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text"  name="txtEmpPhone" class="form-control" placeholder="dropzone *" value="" />
-                                                </div>
-                                                <input type="submit" class="btnRegister"  value="Register"/>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

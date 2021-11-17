@@ -33,56 +33,59 @@
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="home-tab">
                                         <h3 class="register-heading">User register</h3>
-                                        <div class="row register-form">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="User Name *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Name *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="password" class="form-control" placeholder="Password *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control"  placeholder="Gender *" value="" />
-                                                </div>
-                        
-                                            </div>
-                                            <div class="col-md-6">
-                                            <div class="form-group">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text"  name="txtEmpPhone" class="form-control" placeholder="ID *" value="" />
-                                                </div>
-                                                <div class="maxl">
-                                                        <label class="radio inline"> 
-                                                            <input type="radio" name="rol" value= 1  checked>
-                                                            <span> Entrepreneur </span> 
-                                                        </label>
-                                                        <label class="radio inline"> 
-                                                            <input type="radio" name="rol" value= 2>
-                                                            <span> Influencer </span> 
-                                                        </label>
+                                        <form action="{{route('register-store')}}" method="POST">
+                                            @csrf
+                                            <div class="row register-form">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="User Name *" value="" name="name_user"/>
                                                     </div>
-                                            
-                                                <input type="submit" class="btnRegister"  value="Register"/>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Name *" value="" name="name" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Last Name *" value="" name="last_name"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" class="form-control" placeholder="Password *" value="" name="password"/>
+                                                    </div>
+                                                    {{-- <div class="form-group">
+                                                        <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                                    </div> --}}
+
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control"  placeholder="Gender *" value="" name="gender"/>
+                                                    </div>
+                            
+                                                </div>
+                                                <div class="col-md-6">
+                                                <div class="form-group">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" placeholder="Your Email *" value="" name="email"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text"  class="form-control" placeholder="ID *" value="no se" name="CC"/>
+                                                    </div>
+                                                    <div class="maxl">
+                                                            <label class="radio inline"> 
+                                                                <input type="radio" name="role" value= 1  checked>
+                                                                <span> Entrepreneur </span> 
+                                                            </label>
+                                                            <label class="radio inline"> 
+                                                                <input type="radio" name="role" value= 2>
+                                                                <span> Influencer </span> 
+                                                            </label>
+                                                        </div>
+                                                
+                                                    <input type="submit" class="btnRegister"  value="Register"/>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>      
         </body>
     </html>

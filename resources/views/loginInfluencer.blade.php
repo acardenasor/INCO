@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Influencer</title>
 
-    <!--stylshhet ref bootstrap-->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+@extends('layouts.register')
 
-    <!--Css Style-->
-    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-
-
-</head>
-    <body>
-    <!------ Include the above in your HEAD tag ---------->
+@section('content')
         <div class="container register">
                         <div class="row">
                             <div class="col-md-3 register-left">
                                 <img src="{{ asset('assets/Logo_blanco.png') }}" alt="INCO logo"/>
+                                <prueba></prueba>
                                 <h1>INCO</h1>
                                 <input type="submit" name="" value="Login"/><br/>
                             </div>
@@ -65,5 +50,4 @@
                         </div>
 
                     </div>
-    </body>
-</html>
+@endsection

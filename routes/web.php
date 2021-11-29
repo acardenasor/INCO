@@ -18,12 +18,21 @@ use Illuminate\Support\Facades\Route;
 
 //Main Login 
 Route::get('/', function () {
+    return view('loginApp');
+}) ;
+
+Route::get('/registro', function () {
     return view('login');
-});
+} )->name('registro');
 
 Route::post('user/register', [LoginController::class, 'storeUser'])->name('register-store');
 Route::post('company/register', [LoginController::class, 'storeCompany'])->name('register-company');
 Route::post('influencer/register', [LoginController::class, 'storeInfluencer'])->name('register-influencer');
+
+Route::get('/resetPass', function () {
+    return view('resetPass');
+})->name('resetPass');
+
 
 //Company Login
 Route::get('login/company', function () {

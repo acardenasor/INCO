@@ -6,14 +6,10 @@
                         <div class="row">
                             <div class="col-md-3 register-left">
                             <img src="{{ asset('assets/Logo_blanco.png') }}" alt="INCO logo"/>
+                                <h1>INCO</h1>
                                 <input type="submit" name="" value="Login"/><br/>
                             </div>
                             <div class="col-md-9 register-right">
-                                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">User</a>
-                                    </li>
-                                </ul>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="home-tab">
                                         <h3 class="register-heading">User register</h3>
@@ -49,7 +45,7 @@
                                                         <input type="email" class="form-control" placeholder="Your Email *" value="" name="email"/>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text"  class="form-control" placeholder="ID *" value="no se" name="CC"/>
+                                                        <input type="text"  class="form-control" placeholder="ID *" value="" name="CC"/>
                                                     </div>
                                                     <div class="maxl">
                                                             <label class="radio inline"> 

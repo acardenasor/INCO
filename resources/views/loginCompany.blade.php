@@ -7,7 +7,6 @@
                         <div class="col-md-3 register-left">
                         <img src="{{ asset('assets/Logo_blanco.png') }}" alt="INCO logo"/>
                             <h1>INCO</h1>
-                            <prueba></prueba>
                             <input type="submit" name="" value="Login"/><br/>
                         </div>
                         <div class="col-md-9 register-right">
@@ -19,10 +18,10 @@
                                         <div class="row register-form">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Company Name *" value="" name="name"/>
+                                                    <input type="text" class="form-control" placeholder="Company Name *" value="" name="name" required/>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="NIT *" value="" name="nit"/>
+                                                    <input type="number" class="form-control" placeholder="NIT *" value="" name="nit" required/>
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" placeholder="Web Domain " value="" name="web_domain"/>
@@ -36,19 +35,13 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="categories *" value="" name="category"/>
+                                                    <input type="text" class="form-control" placeholder="categories *" value="" name="category" required/>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="email" class="form-control" placeholder="Your Email *" value="" name="email"/>
+                                                    <input type="email" class="form-control" placeholder="Your Email *" value="" name="email" required/>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" minlength="10" maxlength="10"  class="form-control" placeholder="Your Phone *" value="" name="contact_number"/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text"  name="txtEmpPhone" class="form-control" placeholder="dropzone *" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text"  name="txtEmpPhone" class="form-control" placeholder="dropzone *" value="" />
+                                                    <input type="text" minlength="10" maxlength="10"  class="form-control" placeholder="Your Phone *" value="" name="contact_number" required/>
                                                 </div>
                                                 <input type="submit" class="btnRegister"  value="Register"/>
                                             </div>

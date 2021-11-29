@@ -12,20 +12,18 @@
                 <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">Login</h3>
                         <div class="row register-form">
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="User Name *" value="" name="name_user"/>
+                                    <input type="text" class="form-control" placeholder="User Name *" value="" name="name_user" required/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password *" value="" name="password"/>
+                                    <input type="password" class="form-control" placeholder="Password *" value="" name="password" required/>
                                 </div>
-                                <button type="button" class="btnRegister">Login</button>                                
-                            </div>
-                            <div class="col-md-6">  
                                 <div class="btn-group-vertical btn-group-lg">  
                                     <a href="/resetPass">I forgot my password</a>
                                     <a href="/registro">Create an account</a>
                                 </div>
+                                <button type="button" class="btnRegister">Login</button>                              
                             </div>
 
                             </div>

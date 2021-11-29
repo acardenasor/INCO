@@ -6,7 +6,6 @@
                         <div class="row">
                             <div class="col-md-3 register-left">
                                 <img src="{{ asset('assets/Logo_blanco.png') }}" alt="INCO logo"/>
-                                <prueba></prueba>
                                 <h1>INCO</h1>
                                 <input type="submit" name="" value="Login"/><br/>
                             </div>
@@ -17,24 +16,16 @@
                                         <form action="{{route('register-company')}}" method="POST">
                                             @csrf
                                             <div class="row register-form">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control"  placeholder="Red Social*" value="" name="" />
-                                                    </div>                 
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="URL Perfil" value="" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea type="text" class="form-control"  placeholder="Description" value=""></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
+                                                <div class="col-12">                
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" placeholder="categoria*" value="" />
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control" placeholder="Experencia previa" value="" />
-                                                    </div>                                                
+                                                        <input type="text" class="form-control" placeholder="Afinidades" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <textarea type="text" class="form-control"  placeholder="Description" value=""></textarea>
+                                                    </div>                                             
                                                     <input type="submit" class="btnRegister"  value="Register"/>
                                                 </div>
                                             </div>

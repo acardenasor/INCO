@@ -22,7 +22,7 @@
                             <div class="col-md-6 ">
                                 <h6>please insert your Email<h6>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Email *" value="" name="email"/>                                    
+                                    <input type="text" class="form-control" placeholder="Email *" value="" name="email" required/>                                    
                                     <button type="button" class="btnRegister">Submit</button>
                                     <div class="row register-form">
                                     </div>

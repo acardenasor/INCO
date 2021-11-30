@@ -33,11 +33,6 @@ Route::get('/resetPass', function () {
     return view('resetPass');
 })->name('resetPass');
 
-Route::get('/socialMedia', function () {
-    return view('socialmediaRegister');
-})->name('socialMedia');
-
-
 //Company Login
 Route::get('login/company', function () {
     return view('loginCompany');

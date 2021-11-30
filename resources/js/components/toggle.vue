@@ -13,9 +13,9 @@
                     </span>
                     <div v-if="todo.show">
                     <hr />
-                    <p>
-                        <input type="text" class="form-control" placeholder="Nombre de usuario" value="" />
-                    </p>
+                        <p>
+                            <input type="url" class="form-control" placeholder="URL de usuario" value=""  style="height: 32px;" required/>
+                        </p>
                     <hr />
                     </div>
                 </section>

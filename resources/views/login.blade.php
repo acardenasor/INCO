@@ -45,7 +45,7 @@
                                                         <input type="email" class="form-control" placeholder="Your Email *" value="" name="email" required/>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="number" class="form-control" placeholder="ID *" value="" name="CC" autocomplete="off" minlength="8" maxlength="10" required/>
+                                                        <input type="text" minlength="8" maxlength="10" class="form-control" placeholder="ID *" value="" name="CC" autocomplete="off"  required/>
                                                     </div>
                                                     <div class="maxl">
                                                             <label class="radio inline"> 

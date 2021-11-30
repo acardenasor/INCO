@@ -21,7 +21,7 @@
                                                     <input type="text" class="form-control" placeholder="Company Name *" value="" name="name" required/>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="number" class="form-control" placeholder="NIT *" value="" name="nit" required/>
+                                                    <input type="text" minlength="7" maxlength="9"  class="form-control" placeholder="NIT *" value="" name="nit" required />
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" placeholder="Web Domain " value="" name="web_domain"/>
@@ -34,14 +34,20 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="categories *" value="" name="category" required/>
-                                                </div>
+                                                <select  class="col-12 form-control" style="margin-bottom: 20px"
+                                                                    onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
+                                                                <option value="" disabled selected hidden>category*</option>
+                                                                <option value="1" >one</option>
+                                                                <option value="2" >two</option>
+                                                                <option value="3">three</option>
+                                                                <option value="4">four</option>
+                                                                <option value="5">five</option>
+                                                </select>
                                                 <div class="form-group">
                                                     <input type="email" class="form-control" placeholder="Your Email *" value="" name="email" required/>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" minlength="10" maxlength="10"  class="form-control" placeholder="Your Phone *" value="" name="contact_number" required/>
+                                                    <input type="text" minlength="8" maxlength="10"  class="form-control" placeholder="Your Phone *" value="" name="contact_number" required/>
                                                 </div>
                                                 <input type="submit" class="btnRegister"  value="Register"/>
                                             </div>

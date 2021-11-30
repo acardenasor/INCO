@@ -37776,7 +37776,13 @@ var staticRenderFns = [
     return _c("p", [
       _c("input", {
         staticClass: "form-control",
-        attrs: { type: "text", placeholder: "Nombre de usuario", value: "" },
+        staticStyle: { height: "32px" },
+        attrs: {
+          type: "url",
+          placeholder: "URL de usuario",
+          value: "",
+          required: "",
+        },
       }),
     ])
   },

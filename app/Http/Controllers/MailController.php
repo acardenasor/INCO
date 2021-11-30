@@ -33,7 +33,7 @@ class MailController extends Controller
     public function send(Request $request){
         $this->validate($request, [
             'email'  =>  'required|email'
-           ]);
+        ]);
            
          $email = $request->input('email');
          $name_user = $this -> find_user($email);

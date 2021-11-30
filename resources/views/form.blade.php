@@ -57,18 +57,18 @@
    @endif
    <form method="post" action="{{url('send')}}">
     {{ csrf_field() }}
-    <div class="form-group">
+    <!--<div class="form-group">
      <label>Nombre</label>
      <input type="text" name="name" class="form-control" value="" />
-    </div>
+    </div>-->
     <div class="form-group">
      <label> Email</label>
      <input type="text" name="email" class="form-control" value="" />
     </div>
-    <div class="form-group">
+    <!--<div class="form-group">
      <label>Mensaje</label>
      <textarea name="message" class="form-control"></textarea>
-    </div>
+    </div>-->
     <div class="form-group">
      <input type="submit" name="send" class="btn btn-info" value="Enviar" />
     </div>

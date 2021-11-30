@@ -16,6 +16,7 @@ class SendMail extends Mailable
      *
      * @return void
      */
+    public $subject = 'Cambio de contraseña';
     public $data;
     public function __construct($data)
     {
@@ -29,6 +30,6 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mensaje');
+        return $this->view('mail.mensaje');
     }
 }

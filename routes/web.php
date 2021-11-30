@@ -57,3 +57,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// intento del correo
+//ruta del formulario
+Route::get('/form', [App\Http\Controllers\MailController::class, 'index']);
+// ruta al enviar correo
+Route::post('/send',  [App\Http\Controllers\MailController::class, 'send']);

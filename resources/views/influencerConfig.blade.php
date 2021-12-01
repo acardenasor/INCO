@@ -17,15 +17,15 @@
  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
  <!-- Vendor CSS Files -->
- <link href="{{ asset('UserView/vendor/aos/aos.css') }}" rel="stylesheet">
- <link href="{{ asset('UserView/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
- <link href="{{ asset('UserView/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
- <link href="{{ asset('UserView/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
- <link href="{{ asset('UserView/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
- <link href="{{ asset('UserView/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+ <link href="{{ asset('User_View/vendor/aos/aos.css') }}" rel="stylesheet">
+ <link href="{{ asset('User_View/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+ <link href="{{ asset('User_View/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+ <link href="{{ asset('User_View/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+ <link href="{{ asset('User_View/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+ <link href="{{ asset('User_View/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="{{ asset('User_View/css/style.css')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: iPortfolio - v3.7.0
@@ -216,7 +216,7 @@
   <script src="{{ asset('User_View/vendor/php-email-form/validate.js') }}" defer></script>
   
   <!-- Template Main JS File -->
-  <script src="js/main.js"></script>
+  <script src="{{ asset('User_View/js/main.js') }}" defer></script>
 
 </body>
 

@@ -7,7 +7,8 @@
                             <div class="col-md-3 register-left">
                             <img src="{{ asset('assets/Logo_blanco.png') }}" alt="INCO logo"/>
                                 <h1>INCO</h1>
-                                <input type="submit" name="" value="Login"/><br/>
+                                <a href="/">
+                                <input type="submit" name="" value="Login"/><br/></a>
                             </div>
                             <div class="col-md-9 register-right">
                                 <div class="tab-content" id="myTabContent">

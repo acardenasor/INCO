@@ -11,6 +11,8 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">Login</h3>
+                    <form action="{{route('user-login')}}" method="POST">
+                        @csrf
                         <div class="row register-form P-validation">
                             <div class="col-12">
                                 <div class="form-group">
@@ -23,16 +25,17 @@
                                     <a href="/resetPass">I forgot my password</a>
                                     <a href="/registro">Create an account</a>
                                 </div>
-                                <input type="submit" class="btnRegister" onclick="validation()" value="login"/> 
+                                <input type="submit" class="btnRegister" onclick="validation()" value="Login"/> 
                                 <p id="demo" class="P-validation"></p>                          
                             </div>
 
-                            </div>
                         </div>
-                </div>
+                    </form>
+                ></div>
             </div>
         </div>
-    </div> 
+    </div>
+</div> 
     <script>
         function validation() {
             let conf = false;

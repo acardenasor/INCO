@@ -9,23 +9,23 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+ <!-- Favicons -->
+ <link href="assets/logo.png" rel="icon">
+ <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+ <!-- Vendor CSS Files -->
+ <link href="{{ asset('UserView/vendor/aos/aos.css') }}" rel="stylesheet">
+ <link href="{{ asset('UserView/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+ <link href="{{ asset('UserView/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+ <link href="{{ asset('UserView/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+ <link href="{{ asset('UserView/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+ <link href="{{ asset('UserView/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: iPortfolio - v3.7.0
@@ -45,7 +45,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+        <img src="User_View/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -92,9 +92,9 @@
   
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
-                <img src="assets/img/colaboratory/PSG-Futbol.jpg" class="img-fluid" alt="">
+                <img src="User_View/img/colaboratory/PSG-Futbol.jpg" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/colaboratory/PSG-Futbol.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="User_View/img/colaboratory/PSG-Futbol.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -102,9 +102,9 @@
   
             <div class="col-lg-4 col-md-6 portfolio-item filter-web">
               <div class="portfolio-wrap">
-                <img src="assets/img/colaboratory/portfolio-2.jpg" class="img-fluid" alt="">
+                <img src="User_View/img/colaboratory/portfolio-2.jpg" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/colaboratory/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="User_View/img/colaboratory/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -112,9 +112,9 @@
   
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
-                <img src="assets/img/colaboratory/Manchester-futbol.jpg" class="img-fluid" alt="">
+                <img src="User_View/img/colaboratory/Manchester-futbol.jpg" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/colaboratory/Manchester-futbol.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="User_View/img/colaboratory/Manchester-futbol.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -122,9 +122,9 @@
   
             <div class="col-lg-4 col-md-6 portfolio-item filter-card">
               <div class="portfolio-wrap">
-                <img src="assets/img/colaboratory/Hotdog-comida.jpg" class="img-fluid" alt="">
+                <img src="User_View/img/colaboratory/Hotdog-comida.jpg" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/colaboratory/Hotdog-comida.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="User_View/img/colaboratory/Hotdog-comida.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -132,9 +132,9 @@
   
             <div class="col-lg-4 col-md-6 portfolio-item filter-web">
               <div class="portfolio-wrap">
-                <img src="assets/img/colaboratory/portfolio-5.jpg" class="img-fluid" alt="">
+                <img src="User_View/img/colaboratory/portfolio-5.jpg" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/colaboratory/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="User_View/img/colaboratory/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -142,9 +142,9 @@
   
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
-                <img src="assets/img/colaboratory/RealMadird_futbol.jpg" class="img-fluid" alt="">
+                <img src="User_View/img/colaboratory/RealMadird_futbol.jpg" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/colaboratory/RealMadird_futbol.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                  <a href="User_View/img/colaboratory/RealMadird_futbol.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -152,9 +152,9 @@
   
             <div class="col-lg-4 col-md-6 portfolio-item filter-card">
               <div class="portfolio-wrap">
-                <img src="assets/img/colaboratory/portfolio-7.jpg" class="img-fluid" alt="">
+                <img src="User_View/img/colaboratory/portfolio-7.jpg" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/colaboratory/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                  <a href="User_View/img/colaboratory/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -162,9 +162,9 @@
   
             <div class="col-lg-4 col-md-6 portfolio-item filter-card">
               <div class="portfolio-wrap">
-                <img src="assets/img/colaboratory/Fideos_comida.jpg" class="img-fluid" alt="">
+                <img src="User_View/img/colaboratory/Fideos_comida.jpg" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/colaboratory/Fideos_comida.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="User_View/img/colaboratory/Fideos_comida.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -172,9 +172,9 @@
   
             <div class="col-lg-4 col-md-6 portfolio-item filter-web">
               <div class="portfolio-wrap">
-                <img src="assets/img/colaboratory/portfolio-3.jpg" class="img-fluid" alt="">
+                <img src="User_View/img/colaboratory/portfolio-3.jpg" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/colaboratory/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="User_View/img/colaboratory/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -205,19 +205,18 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <link href="{{ asset('UserView/vendor/aos/aos.css') }}" rel="stylesheet">
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
+  <script src="{{ asset('User_View/vendor/purecounter/purecounter.js') }}" defer></script>
+  <script src="{{ asset('User_View/vendor/aos/aos.js') }}" defer></script>
+  <script src="{{ asset('User_View/vendor/bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
+  <script src="{{ asset('User_View/vendor/glightbox/js/glightbox.min.js') }}" defer></script>
+  <script src="{{ asset('User_View/vendor/isotope-layout/isotope.pkgd.min.js') }}" defer></script>
+  <script src="{{ asset('User_View/vendor/swiper/swiper-bundle.min.js') }}" defer></script>
+  <script src="{{ asset('User_View/vendor/typed.js/typed.min.js') }}" defer></script>
+  <script src="{{ asset('User_View/vendor/waypoints/noframework.waypoints.js') }}" defer></script>
+  <script src="{{ asset('User_View/vendor/php-email-form/validate.js') }}" defer></script>
+  
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 

@@ -257,7 +257,10 @@
   <script src="{{ asset('User_View/vendor/typed.js/typed.min.js') }}" defer></script>
   <script src="{{ asset('User_View/vendor/waypoints/noframework.waypoints.js') }}" defer></script>
   <script src="{{ asset('User_View/vendor/php-email-form/validate.js') }}" defer></script>
-
+  
+  <!-- Template Main JS File -->
+  <script src="js/main.js"></script>
+  
 {{--   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -268,8 +271,6 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script> --}}
 
-  <!-- Template Main JS File -->
-  <script src="js/main.js"></script>
 
 </body>
 

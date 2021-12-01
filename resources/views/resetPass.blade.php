@@ -21,13 +21,18 @@
                             <div class="col-md-3">
                             </div>
                             <div class="col-md-6 ">
-                                <h6>please insert your Email<h6>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Email *" value="" name="email" required/>                                    
-                                    <button type="button" class="btnRegister">Submit</button>
-                                    <div class="row register-form">
+                                <form action="{{route('Email')}}" method="POST">
+                                    @csrf
+                                    <h6>please insert your Email<h6>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Email *" value="" name="email" required/>                                    
+                                        <input type="submit" class="btnRegister" onclick="validation()"value="Login"/>
+                                        <p id="demo" class="P-validation"></p>
+                                        <div class="row register-form">
+                                        </div>
                                     </div>
-                                </div>
+                                    <p id="demo" class="P-validation"></p>
+                                </form>    
                             </div>
                             <div class="col-md-3">
                             </div>
@@ -36,4 +41,16 @@
             </div>
         </div>
     </div> 
+    <script>
+        function validation() {
+            let conf = false;
+            var txt;
+            if (conf) {
+                txt = "";
+            }  else {
+                txt = "please check your email and try sing in again"
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+        </script>
 @endsection

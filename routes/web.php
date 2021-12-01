@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LoginRController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Route::post('user/register', [LoginController::class, 'storeUser'])->name('regis
 Route::post('company/register', [LoginController::class, 'storeCompany'])->name('register-company');
 Route::post('influencer/register', [LoginController::class, 'storeInfluencer'])->name('register-influencer');
 Route::post('loginUser', [LoginRController::class, 'login'])->name('user-login');
+Route::post('patata',[MailController::class, 'send'])->name('Email');
 
 
 Route::get('/resetPass', function () {

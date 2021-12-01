@@ -11,7 +11,7 @@ class MailController extends Controller
 {
     
     public function index(){
-        return view('form');
+        return view('resetPass');
     }
 
     public function change_password($email, $new_password){

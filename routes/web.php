@@ -26,6 +26,22 @@ Route::get('/registro', function () {
     return view('login');
 } )->name('registro');
 
+Route::get('/perfil', function () {
+    return view('influencerView');
+} )->name('perfil');
+
+Route::get('/colaboraciones', function () {
+    return view('influencerRepo');
+} )->name('colaboraciones');
+
+Route::get('/calificaciones', function () {
+    return view('influencerCal');
+} )->name('calificaciones');
+
+Route::get('/micuenta', function () {
+    return view('influencerConfig');
+} )->name('micuenta');
+
 Route::post('user/register', [LoginController::class, 'storeUser'])->name('register-store');
 Route::post('company/register', [LoginController::class, 'storeCompany'])->name('register-company');
 Route::post('influencer/register', [LoginController::class, 'storeInfluencer'])->name('register-influencer');

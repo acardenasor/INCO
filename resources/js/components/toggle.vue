@@ -46,7 +46,6 @@
                             {
                                 text: "Tik tok"
                             },
-
  {
                                 text: "Kwai"
                             },

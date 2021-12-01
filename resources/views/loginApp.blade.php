@@ -11,7 +11,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">Login</h3>
-                        <div class="row register-form">
+                        <div class="row register-form P-validation">
                             <div class="col-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="User Name *" value="" name="name_user" required/>
@@ -23,7 +23,8 @@
                                     <a href="/resetPass">I forgot my password</a>
                                     <a href="/registro">Create an account</a>
                                 </div>
-                                <button type="button" class="btnRegister">Login</button>                              
+                                <input type="submit" class="btnRegister" onclick="validation()" value="login"/> 
+                                <p id="demo" class="P-validation"></p>                          
                             </div>
 
                             </div>
@@ -32,4 +33,16 @@
             </div>
         </div>
     </div> 
+    <script>
+        function validation() {
+            let conf = false;
+            var txt;
+            if (conf) {
+                txt = "";
+            }  else {
+                txt = "Password or Email incorrect"
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+        </script>
 @endsection

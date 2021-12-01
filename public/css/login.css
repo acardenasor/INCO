@@ -42,6 +42,9 @@ body{
     font-size: 40px;
 
 }
+.P-validation p{
+  color: tomato;
+}
 
 @-webkit-keyframes mover {
     0% { transform: translateY(0); }

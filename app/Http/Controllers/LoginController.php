@@ -11,6 +11,9 @@ class LoginController extends Controller
 {
     public function storeUser(Request $request)
     {
+        // header('Access-Control-Allow-Origin: *');
+        // header('Access-Control-Allow-Headers: *');
+
         $user = new User();
         $user->name_user = $request->name_user;
         $user->name = $request->name;
@@ -23,12 +26,12 @@ class LoginController extends Controller
 
         $user->save();
 
-        $role = $request->role;
-        if($role == 1){
-            return redirect()->route('login-company');
-        }elseif($role == 2){
-            return redirect()->route('login-influencer');
-        }
+        // $role = $request->role;
+        // if($role == 1){
+        //     return redirect()->route('login-company');
+        // }elseif($role == 2){
+        //     return redirect()->route('login-influencer');
+        // }
 
     }
     public function storeCompany(Request $request)
@@ -72,4 +75,3 @@ class LoginController extends Controller
 
     }
 }
-

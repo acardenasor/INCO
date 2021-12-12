@@ -26,12 +26,12 @@ class LoginController extends Controller
 
         $user->save();
 
-        // $role = $request->role;
-        // if($role == 1){
-        //     return redirect()->route('login-company');
-        // }elseif($role == 2){
-        //     return redirect()->route('login-influencer');
-        // }
+         $role = $request->role;
+         if($role == 1){
+             return redirect()->route('register-company');
+         }elseif($role == 2){
+             return redirect()->route('register-influencer');
+         }
 
     }
     public function storeCompany(Request $request)
@@ -65,13 +65,6 @@ class LoginController extends Controller
         $user->role = $request->role;
 
         $user->save();
-
-        $role = $request->role;
-        if($role == 1){
-            return redirect()->route('login-company');
-        }elseif($role == 2){
-            return redirect()->route('login-influencer');
-        }
 
     }
 }

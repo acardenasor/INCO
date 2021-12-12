@@ -26,5 +26,5 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('company/register', [LoginController::class, 'storeCompany'])->name('register-company');
     Route::post('influencer/register', [LoginController::class, 'storeInfluencer'])->name('register-influencer');
     Route::post('loginUser', [LoginRController::class, 'login'])->name('user-login');
-    Route::post('/send',  [App\Http\Controllers\MailController::class, 'send']);
+    Route::post('/send',  [MailController::class, 'send'])->name('send-mail');
 });

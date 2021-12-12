@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LoginRController;
+use App\Http\Controllers\MailController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,5 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('company/register', [LoginController::class, 'storeCompany'])->name('register-company');
     Route::post('influencer/register', [LoginController::class, 'storeInfluencer'])->name('register-influencer');
     Route::post('loginUser', [LoginRController::class, 'login'])->name('user-login');
-    Route::post('/send',  [MailController::class, 'send'])->name('send-mail');
+    Route::post('send', [MailController::class, 'send'])->name('send-mail');
 });

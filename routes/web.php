@@ -39,9 +39,25 @@ Route::get('/calificaciones', function () {
     return view('influencerCal');
 } )->name('calificaciones');
 
-Route::get('/micuenta', function () {
+Route::get('/miCuentainfluencer', function () {
     return view('influencerConfig');
-} )->name('micuenta');
+} )->name('miCuentaInfluencer');
+
+Route::get('/profileEntrepreneur', function () {
+    return view('entrepreneurView');
+} )->name('profileEntrepreneur');
+
+Route::get('/entrepreneurCreate', function () {
+    return view('entrepreneurCreate');
+} )->name('entrepreneurCreate');
+
+Route::get('/entrepreneurCollaboration', function () {
+    return view('entrepreneurRepo');
+} )->name('entrepreneurColaboration');
+
+Route::get('/entrepreneurConfig', function () {
+    return view('entrepreneurConfig');
+} )->name('entrepreneurConfig');
 
 Route::post('user/register', [LoginController::class, 'storeUser'])->name('register-store');
 Route::post('company/register', [LoginController::class, 'storeCompany'])->name('register-company');

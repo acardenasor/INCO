@@ -54,8 +54,8 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="User_View/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
+        <img src="User_View/img/empanaditas-img.jpg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">Empanaditas</a></h1>
         <div class="social-links mt-3 text-center">
 
           <!--Realizar click y que se vea la info-->
@@ -70,24 +70,24 @@
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="influencerView.html" class="nav-link scrollto active"><i class="bx bx-user"></i> <span>Perfil</span></a></li>
-          <li><a href="influencerRepo.html" class="nav-link scrollto"><i class="bx bx-stats"></i> <span>Colaboraciones</span></a></li>
-          <li><a href="influencerCal.html" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Calificaciones</span></a></li>
-          <li><a href="miCuentainfluencer" class="nav-link scrollto"><i class="bx bx-pencil"></i> <span>Mi cuenta</span></a></li>
+          <li><a href="profileEntrepreneur" class="nav-link scrollto active"><i class="bx bx-user"></i> <span>Profile</span></a></li>
+          <li><a href="entrepreneurCreate" class="nav-link scrollto"><i class="bx bx-plus"></i> <span>Create</span></a></li>
+          <li><a href="entrepreneurCollaboration" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Collaboration</span></a></li>
+          <li><a href="entrepreneurConfig" class="nav-link scrollto"><i class="bx bx-stats"></i> <span>Setting</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Alex Smith</h1>
+  <!-- ======= entrepreneur Section ======= -->
+  <section id="entrepreneur" class="entrepreneur d-flex flex-column justify-content-center align-items-center">
+    <div class="entrepreneur-container" data-aos="fade-in">
+      <h1>Empanaditas</h1>
 
       <!--Dejar como red social-->
-      <p>Yo soy <span class="typed" data-typed-items="Influencer, Creador de contenido, Influenciador"></span></p>
+      <p>I'm <span class="typed" data-typed-items="Entrepreneur"></span></p>
     </div>
-  </section><!-- End Hero -->
+  </section><!-- End entrepreneur -->
 
   <main id="main">
 
@@ -96,11 +96,11 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Acerca de mí</h2>
+          <h2>¿Quiénes Somos?</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
         <div class="justify-content-center">
-          <img src="https://astelus.com/wp-content/viajes/Lago-Moraine-Parque-Nacional-Banff-Alberta-Canada.jpg" class="col-lg-12 col-sm-12 col-md-8 py-1">
+          <img src="User_View/img/empanadas-local.jpg" class="col-lg-12 col-sm-12 col-md-8 py-1">
           <img src="https://us.123rf.com/450wm/kesu87/kesu871907/kesu87190700139/127039478-hermoso-paisaje-con-amanecer-en-la-cascada-kirkjufellsfoss-y-la-monta%C3%B1a-kirkjufell-islandia-.jpg?ver=6" class="col-lg-3 col-sm-12 col-md-8 py-1">
           <img src="https://us.123rf.com/450wm/kesu87/kesu871907/kesu87190700139/127039478-hermoso-paisaje-con-amanecer-en-la-cascada-kirkjufellsfoss-y-la-monta%C3%B1a-kirkjufell-islandia-.jpg?ver=6" class="col-lg-3 col-sm-12 col-md-8 py-1">
           <img src="https://us.123rf.com/450wm/kesu87/kesu871907/kesu87190700139/127039478-hermoso-paisaje-con-amanecer-en-la-cascada-kirkjufellsfoss-y-la-monta%C3%B1a-kirkjufell-islandia-.jpg?ver=6" class="col-lg-3 col-sm-12 col-md-8 py-1">
@@ -114,11 +114,14 @@
 
         <div class="section-title">
           <!--Aquí puede ser mucho mejor trar los datos generales-->
-          <h2>Datos</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Categorias</h2>
+          <ul>
+            <li>Food</li>
+          </ul>
+          {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
         </div>
 
-        <div class="row no-gutters">
+        {{-- <div class="row no-gutters">
           <!--Podemos guiarnos para las fotos-->
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
             <div class="count-box">
@@ -151,7 +154,7 @@
               <p><strong>Total seguidores</strong> rerum asperiores dolor</p>
             </div>
           </div>
-        </div>
+        </div> --}}
 
       </div>
     </section><!-- End Facts Section -->

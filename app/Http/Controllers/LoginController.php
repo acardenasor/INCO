@@ -26,12 +26,15 @@ class LoginController extends Controller
 
         $user->save();
 
+        return response()->json(['response' => 'User registered!'], 201);
+/*
          $role = $request->role;
          if($role == 1){
              return redirect()->route('register-company');
          }elseif($role == 2){
              return redirect()->route('register-influencer');
          }
+         */
 
     }
     public function storeCompany(Request $request)
@@ -65,6 +68,7 @@ class LoginController extends Controller
         $user->role = $request->role;
 
         $user->save();
+
 
     }
 }

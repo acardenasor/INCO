@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::group(['middleware' => ['cors']], function () {
+    Route::get('user/{id}', [UserController::class, 'getUser'])->name('get-user');
     Route::post('user/register', [RegisterController::class, 'storeUser'])->name('register-store');
     Route::post('user/update', [UserController::class, 'updateUser'])->name('update-user');
     Route::post('company/register', [RegisterController::class, 'storeCompany'])->name('register-company');

@@ -37,6 +37,16 @@ class UserController extends Controller
         }
     }
 
+    public function getUser($id) {
+        $user = User::where('id', $id)->first();
+
+        if(is_null($user)){
+            return response()->json(['response' => 'User do not exist!'], 400);
+        }
+
+        return $user;
+    }
+
     public function updateUser(Request $request)
     {
         $id = $request->id;

@@ -1,10 +1,5 @@
 <?php
 
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\LoginController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MailController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes

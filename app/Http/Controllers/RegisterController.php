@@ -29,6 +29,7 @@ class RegisterController extends Controller
         return response()->json(['response' => 'User registered!'], 201);
 
     }
+
     public function storeCompany(Request $request)
     {
         $company = new Company();

@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,14 +21,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::group(['middleware' => ['cors']], function () {
-    Route::get('user/{id}', [UserController::class, 'getUser'])->name('get-user');
-    Route::post('user/register', [RegisterController::class, 'storeUser'])->name('register-store');
+Route::group(['middleware' => ['jwt.verify']], function () {
+    Route::get('user', [UserController::class, 'getAuthenticatedUser'])->name('get-user');
     Route::post('user/update', [UserController::class, 'updateUser'])->name('update-user');
+    Route::post('company/update', [UserController::class, 'updateCompany'])->name('update-company');
     Route::post('company/register', [RegisterController::class, 'storeCompany'])->name('register-company');
     Route::post('influencer/register', [RegisterController::class, 'storeInfluencer'])->name('register-influencer');
-    Route::post('loginUser', [LoginController::class, 'login'])->name('user-login');
-    Route::post('send', [MailController::class, 'send'])->name('send-mail');
-    Route::post('update/company', [UserController::class, 'updateCompany'])->name('update-company');
+});
+
+Route::group(['middleware' => ['cors']], function () {
+    Route::post('user/login', [UserController::class, 'login'])->name('login-user');
+    Route::post('user/register', [UserController::class, 'register'])->name('register-user');
+    Route::post('user/forgot-password', [MailController::class, 'send'])->name('send-mail');
 });

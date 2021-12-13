@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
@@ -37,16 +43,6 @@ class UserController extends Controller
         }
     }
 
-    public function getUser($id) {
-        $user = User::where('id', $id)->first();
-
-        if(is_null($user)){
-            return response()->json(['response' => 'User do not exist!'], 400);
-        }
-
-        return $user;
-    }
-
     public function updateUser(Request $request)
     {
         $id = $request->id;
@@ -64,7 +60,7 @@ class UserController extends Controller
 
         $user = User::where('id', $id)->first();
 
-        if(is_null($user)){
+        if (is_null($user)) {
             return response()->json(['response' => 'User do not exist!'], 404);
         }
 
@@ -142,5 +138,73 @@ class UserController extends Controller
         $company->save();
 
         return response()->json(['response' => 'Updated information!'], 201);
+    }
+
+    public function login(Request $request)
+    {
+        $name_user = $request->name_user;
+        $password = $request->password;
+
+        if (is_null($name_user)) {
+            return response()->json(['response' => 'name_user field is necessary!'], 400);
+        }
+
+        if (is_null($password)) {
+            return response()->json(['response' => 'password field is necessary!'], 400);
+        }
+
+        $credentials = $request->only('name_user', 'password');
+        try {
+            if (!$token = JWTAuth::attempt($credentials)) {
+                return response()->json(['response' => 'invalid_credentials!'], 400);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'could_not_create_token'], 500);
+        }
+        return response()->json(compact('token'));
+    }
+
+    public function getAuthenticatedUser()
+    {
+        try {
+            if (!$user = JWTAuth::parseToken()->authenticate()) {
+                return response()->json(['response' => 'User do not exist!'], 404);
+            }
+        } catch (TokenExpiredException $e) {
+            return response()->json(['response' => 'token_expired'], $e->getStatusCode());
+        } catch (TokenInvalidException $e) {
+            return response()->json(['response' => 'token_invalid'], $e->getStatusCode());
+        } catch (JWTException $e) {
+            return response()->json(['response' => 'token_absent'], $e->getStatusCode());
+        }
+
+        return response()->json(compact('user'));
+    }
+
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name_user' => 'required|string|max:255|unique:users'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['response' => $validator->errors()->toJson()], 400);
+        }
+
+        $user = User::create([
+            'name_user' => $request->get('name_user'),
+            'name' => $request->get('name'),
+            'last_name' => $request->get('last_name'),
+            'password' => $request->get('password'),
+            'gender' => $request->get('gender'),
+            'email' => $request->get('email'),
+            'CC' => $request->get('CC'),
+            'role' => $request->get('role'),
+        ]);
+
+        $token = JWTAuth::fromUser($user);
+        $response = 'User registered!';
+
+        return response()->json(compact('response', 'user', 'token'), 201);
     }
 }

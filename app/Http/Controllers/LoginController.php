@@ -2,73 +2,59 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
-use App\Models\Influencer;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function storeUser(Request $request)
+    public function verify_user($name_user)
     {
-        // header('Access-Control-Allow-Origin: *');
-        // header('Access-Control-Allow-Headers: *');
-
-        $user = new User();
-        $user->name_user = $request->name_user;
-        $user->name = $request->name;
-        $user->last_name = $request->last_name;
-        $user->password = $request->password;
-        $user->gender = $request->gender;
-        $user->email = $request->email;
-        $user->CC = $request->CC;
-        $user->role = $request->role;
-
-        $user->save();
-
-        return response()->json(['response' => 'User registered!'], 201);
-/*
-         $role = $request->role;
-         if($role == 1){
-             return redirect()->route('register-company');
-         }elseif($role == 2){
-             return redirect()->route('register-influencer');
-         }
-         */
-
-    }
-    public function storeCompany(Request $request)
-    {
-        $company = new Company();
-        $company->name = $request->name;
-        $company->nit = $request->nit;
-        $company->web_domain = $request->web_domain;
-        $company->address = $request->address;
-        $company->description = $request->description;
-        $company->category = $request->category;
-        $company->email = $request->email;
-        $company->contact_number = $request->contact_number;
-
-        $company->save();
-
-        return redirect()->route('welcome');
-
+        $user = User::where('name_user', $name_user)->first();
+        if (is_null($user)) {
+            return null;
+        } else {
+            return $user;
+        }
     }
 
-    public function storeInfluencer(Request $request)
+    private function verify_password($password, $passwordEntered)
     {
-        $user = new Influencer();
-        $user->name_user = $request->name_user;
-        $user->name = $request->name;
-        $user->last_name = $request->last_name;
-        $user->password = $request->password;
-        $user->gender = $request->gender;
-        $user->email = $request->email;
-        $user->CC = $request->CC;
-        $user->role = $request->role;
+        if ($password == $passwordEntered) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-        $user->save();
+    public function login(Request $request)
+    {
+        $name_user = $request->name_user;
+        $password = $request->password;
 
+        if (is_null($name_user)) {
+            return response()->json(['response' => 'name_user field is necessary!'], 403);
+        }
+
+        if (is_null($password)) {
+            return response()->json(['response' => 'password field is necessary!'], 403);
+        }
+
+        $user = $this->verify_user($name_user);
+
+        if (is_null($user)) {
+            return response()->json(['response' => 'User not exists!'], 401);
+        }
+
+        $validPassword = $this->verify_password($user->password, $password);
+
+        if (!$validPassword) {
+            return response()->json(['response' => 'Password is incorrect!'], 401);
+        }
+
+        return response()->json([
+            'response' => 'User logged!',
+            'role' => $user->role
+        ], 200);
 
     }
 }

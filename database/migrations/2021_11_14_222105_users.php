@@ -15,7 +15,7 @@ class Users extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name_user', 100);
+            $table->string('name_user', 100)->unique();
             $table->string('password');
             $table->string('name');
             $table->string('last_name');
@@ -25,6 +25,7 @@ class Users extends Migration
             $table->string('gender');
             $table->unsignedBigInteger('role')->nullable();
             $table->foreign('role')->references('id_role')->on('roles')->onDelete('set null');
+            $table->string('profile_picture')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

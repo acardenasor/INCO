@@ -20,7 +20,7 @@ class Influencers extends Migration
             $table->unsignedBigInteger('category')->nullable();
             $table->foreign('category')->references('id_category')->on('categories')->onDelete('set null');
             $table->text('description');
-            $table->string('Fotos')->nullable();
+            $table->string('photos')->nullable();
             $table->text('previous experience')->nullable();
             $table->timestamp('started_on')->nullable();
         });

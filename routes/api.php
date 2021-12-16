@@ -31,6 +31,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
 
 Route::group(['middleware' => ['cors']], function () {
     Route::post('user/login', [UserController::class, 'login'])->name('login-user');
+    Route::post('user/logout', [UserController::class, 'logout'])->name('logout-user');
     Route::post('user/register', [UserController::class, 'register'])->name('register-user');
     Route::post('user/forgot-password', [MailController::class, 'send'])->name('send-mail');
 });

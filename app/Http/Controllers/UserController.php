@@ -164,6 +164,11 @@ class UserController extends Controller
         return response()->json(compact('token'));
     }
 
+    public function logout() {
+        JWTAuth::invalidate(JWTAuth::getToken());
+        return response()->json(['response' => 'User logout!'], 200);
+    }
+
     public function getAuthenticatedUser()
     {
         try {
@@ -171,11 +176,11 @@ class UserController extends Controller
                 return response()->json(['response' => 'User do not exist!'], 404);
             }
         } catch (TokenExpiredException $e) {
-            return response()->json(['response' => 'token_expired'], $e->getStatusCode());
+            return response()->json(['response' => 'token_expired'], 401);
         } catch (TokenInvalidException $e) {
-            return response()->json(['response' => 'token_invalid'], $e->getStatusCode());
+            return response()->json(['response' => 'token_invalid'], 401);
         } catch (JWTException $e) {
-            return response()->json(['response' => 'token_absent'], $e->getStatusCode());
+            return response()->json(['response' => 'token_absent'], 401);
         }
 
         return response()->json(compact('user'));
@@ -195,7 +200,8 @@ class UserController extends Controller
             'name_user' => $request->get('name_user'),
             'name' => $request->get('name'),
             'last_name' => $request->get('last_name'),
-            'password' => $request->get('password'),
+            'unencrypted_password' => $request->get('password'),
+            'password' => bcrypt($request->get('password')),
             'gender' => $request->get('gender'),
             'email' => $request->get('email'),
             'CC' => $request->get('CC'),

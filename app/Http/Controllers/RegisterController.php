@@ -4,32 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\Influencer;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    public function storeUser(Request $request)
-    {
-        // header('Access-Control-Allow-Origin: *');
-        // header('Access-Control-Allow-Headers: *');
-
-        $user = new User();
-        $user->name_user = $request->name_user;
-        $user->name = $request->name;
-        $user->last_name = $request->last_name;
-        $user->password = $request->password;
-        $user->gender = $request->gender;
-        $user->email = $request->email;
-        $user->CC = $request->CC;
-        $user->role = $request->role;
-
-        $user->save();
-
-        return response()->json(['response' => 'User registered!'], 201);
-
-    }
-
     public function storeCompany(Request $request)
     {
         $company = new Company();

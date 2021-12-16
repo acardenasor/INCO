@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
@@ -84,7 +83,8 @@ class UserController extends Controller
         $user->name_user = $new_name_user;
         $user->name = $new_name;
         $user->last_name = $new_last_name;
-        $user->password = $new_password;
+        $user->unencrypted_password = $new_password;
+        $user->password = bcrypt($new_password);
         $user->gender = $new_gender;
         $user->email = $new_email;
 
@@ -164,7 +164,8 @@ class UserController extends Controller
         return response()->json(compact('token'));
     }
 
-    public function logout() {
+    public function logout()
+    {
         JWTAuth::invalidate(JWTAuth::getToken());
         return response()->json(['response' => 'User logout!'], 200);
     }

@@ -18,7 +18,8 @@ class MailController extends Controller
     public function change_password($email, $new_password)
     {
         $user = User::where('email', $email)->first();
-        $user->password = $new_password;
+        $user->unencrypted_password = $new_password;
+        $user->password = bcrypt($new_password);
         $user->save();
     }
 

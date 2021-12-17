@@ -25,7 +25,7 @@ class Users extends Migration
             $table->string('CC');
             $table->string('gender');
             $table->unsignedBigInteger('role')->nullable();
-            $table->foreign('role')->references('id_role')->on('roles')->onDelete('set null');
+            $table->foreign('role')->references('id')->on('roles')->onDelete('set null');
             $table->string('profile_picture')->nullable();
             $table->rememberToken();
             $table->timestamps();

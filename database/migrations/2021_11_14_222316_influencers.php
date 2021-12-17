@@ -14,15 +14,15 @@ class Influencers extends Migration
     public function up()
     {
         Schema::create('influencers', function (Blueprint $table) {
-            $table->bigIncrements('id_influencer');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('id_user')->unique()->nullable();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('set null');
             $table->unsignedBigInteger('category')->nullable();
-            $table->foreign('category')->references('id_category')->on('categories')->onDelete('set null');
+            $table->foreign('category')->references('id')->on('categories')->onDelete('set null');
             $table->text('description');
             $table->string('photos')->nullable();
             $table->text('previous experience')->nullable();
-            $table->timestamp('started_on')->nullable();
+            $table->timestamps();
         });
     }
 

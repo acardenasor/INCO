@@ -14,14 +14,14 @@ class Companies extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->bigIncrements('id_company');
-            $table->string('name',100);
+            $table->bigIncrements('id');
+            $table->string('name',100)->unique();
             $table->text('description');
             $table->unsignedBigInteger('category')->nullable();
-            $table->foreign('category')->references('id_category')->on('categories')->onDelete('set null');
+            $table->foreign('category')->references('id')->on('categories')->onDelete('set null');
             $table->integer('nit');
-            $table->string('address');
-            $table->string('web_domain');
+            $table->string('address')->nullable();
+            $table->string('web_domain')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('contact_number');

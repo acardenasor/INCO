@@ -13,11 +13,11 @@ class SocialNetworks extends Migration
      */
     public function up()
     {
-        
+
         Schema::create('social_networks', function (Blueprint $table) {
-            $table->bigIncrements('id_social_network');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('id_influencer')->nullable();
-            $table->foreign('id_influencer')->references('id_influencer')->on('influencers')->onDelete('set null');
+            $table->foreign('id_influencer')->references('id')->on('influencers')->onDelete('set null');
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
@@ -30,7 +30,7 @@ class SocialNetworks extends Migration
             $table->string('reddit')->nullable();
             $table->string('weibo')->nullable();
             $table->string('bilibili')->nullable();
-            $table->timestamp('started_on')->nullable();
+            $table->timestamps();
         });
     }
 

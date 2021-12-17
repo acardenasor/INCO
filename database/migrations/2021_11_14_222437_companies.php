@@ -18,7 +18,7 @@ class Companies extends Migration
             $table->string('name',100)->unique();
             $table->text('description');
             $table->unsignedBigInteger('category')->nullable();
-            $table->foreign('category')->references('id')->on('categories')->onDelete('set null');
+            $table->foreign('category')->references('id')->on('types_entrepreneurs')->onDelete('set null');
             $table->integer('nit');
             $table->string('address')->nullable();
             $table->string('web_domain')->nullable();

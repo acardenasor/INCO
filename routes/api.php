@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InfluencerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -36,4 +37,5 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('user/logout', [UserController::class, 'logout'])->name('logout-user');
     Route::post('user/register', [UserController::class, 'register'])->name('register-user');
     Route::post('user/forgot-password', [MailController::class, 'send'])->name('send-mail');
+    Route::get('categories', [CategoryController::class, 'getCategory'])->name('get-category');
 });

@@ -9,16 +9,23 @@ use Illuminate\Support\Facades\Validator;
 
 class CompanyController extends Controller
 {
-    public function getCompany(){
+    public function getCompany()
+    {
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
         $id_user = $content->user->id;
         $entrepreneur = Entrepreneur::where('id_user', $id_user)->first();
+
+        if (is_null($entrepreneur)) {
+            return response()->json(['response' => 'User not have company!'], 400);
+        }
+
         $id_company = $entrepreneur->id_company;
         $company = Company::where('id', $id_company)->first();
 
         return response()->json(compact('company'));
     }
+
     public function registerCompany(Request $request)
     {
         $validator = Validator::make($request->all(), [

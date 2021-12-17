@@ -60,7 +60,7 @@ class InfluencerController extends Controller
             return response()->json(['response' => 'User not have influencer!'], 400);
         }
 
-        return response()->json(compact('influencer'));
+        return response()->json($influencer);
     }
 
     public function updateUser(Request $request)

@@ -23,7 +23,7 @@ class CompanyController extends Controller
         $id_company = $entrepreneur->id_company;
         $company = Company::where('id', $id_company)->first();
 
-        return response()->json(compact('company'));
+        return response()->json($company);
     }
 
     public function registerCompany(Request $request)

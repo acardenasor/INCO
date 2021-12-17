@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('user', [UserController::class, 'getAuthenticatedUser'])->name('get-user');
+    Route::get('influencer/information', [InfluencerController::class, 'getInformartionInfluencer'])->name('get-user');
     Route::get('company', [CompanyController::class, 'getCompany'])->name('get-company');
     Route::get('influencer', [InfluencerController::class, 'getInfluencer'])->name('get-influencer');
     Route::post('company/update', [CompanyController::class, 'updateCompany'])->name('update-company');

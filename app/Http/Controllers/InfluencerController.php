@@ -15,6 +15,13 @@ class InfluencerController extends Controller
         $content = $user->getData();
         $id_user = $content->user->id;
 
+        $new_description = $request->description;
+        $new_category = $request->category;
+
+        if (is_null($new_description) || is_null($new_category)) {
+            return response()->json(['response' => 'it is necessary to fill in all the fields'], 400);
+        }
+
         $influencer = Influencer::create([
             'id_user' => $id_user,
             'description' => $request->get('description'),
@@ -25,6 +32,7 @@ class InfluencerController extends Controller
 
         Social_Network::create([
             'id_influencer' => $id_influencer,
+            'facebook' => $request->get('facebook'),
             'twitter' => $request->get('twitter'),
             'instagram' => $request->get('instagram'),
             'youtube' => $request->get('youtube'),

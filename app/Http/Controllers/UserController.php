@@ -91,6 +91,19 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
+        $name_user = $request->name_user;
+        $name = $request->name;
+        $last_name = $request->last_name;
+        $gender = $request->gender;
+        $email = $request->email;
+        $role = $request->role;
+        $password = $request->password;
+        $cc = $request->CC;
+
+        if (is_null($role) || is_null($name_user) || is_null($name) || is_null($last_name) || is_null($gender) || is_null($email) || is_null($password) || is_null($cc)) {
+            return response()->json(['response' => 'it is necessary to fill in all the fields'], 400);
+        }
+
         $validator = Validator::make($request->all(), [
             'name_user' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',

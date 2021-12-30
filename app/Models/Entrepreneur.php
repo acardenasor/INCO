@@ -12,14 +12,19 @@ class Entrepreneur extends Model
     protected $table = "entrepreneurs";
     protected $fillable = ['id_user', 'id_company'];
 
-    //Relation one to many user-enterpreneurs (inverse)
+    //Relation one to one user-entrepreneur (inverse)
     public function user() {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User', 'id_user', 'id');
     }
 
 
     //Relation one to many company-enterpreneurs (inverse)
     public function company() {
         return $this->belongsTo('App\Models\Company');
+    }
+
+    //Relation one to many entrepreneur-ventures
+    public function users(){
+        return $this->hasMany('App\Models\Venture');
     }
 }

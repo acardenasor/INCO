@@ -29,10 +29,10 @@ class User extends Model implements JWTSubject, AuthenticatableContract
     }
 
 
-    //Relation many to one user-enterpreneurs
+    //Relation one to one user-enterpreneur
     public function entrepreneurs()
     {
-        return $this->hasMany('App\Models\Enterpreneur');
+        return $this->hasOne('App\Models\Enterpreneur', 'id_user', 'id');
     }
 
     public function getJWTIdentifier()

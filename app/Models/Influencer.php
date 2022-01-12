@@ -17,15 +17,18 @@ class Influencer extends Model
         return $this->belongsTo('App\Models\User', 'id_user', 'id');
     }
 
-
     //Relation one to one influencer-social_networks
     public function social_networks() {
         return $this->hasOne('App\Models\Social_Network');
     }
 
-
     //Relation one to many category-influencers (inverse)
     public function category() {
         return $this->belongsTo('App\Models\Category');
+    }
+
+    //Relation one to many influencer-comentsItoE
+    public function commentsItoE(){
+        return $this->hasMany('App\Models\CommentitoE');
     }
 }

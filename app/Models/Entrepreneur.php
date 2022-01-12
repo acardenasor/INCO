@@ -17,14 +17,13 @@ class Entrepreneur extends Model
         return $this->belongsTo('App\Models\User', 'id_user', 'id');
     }
 
-
     //Relation one to many company-enterpreneurs (inverse)
     public function company() {
-        return $this->belongsTo('App\Models\Company');
+        return $this->belongsTo('App\Models\Company','id_company', 'id');
     }
 
-    //Relation one to many entrepreneur-ventures
-    public function users(){
-        return $this->hasMany('App\Models\Venture');
+    //Relation one to many entrepreneur-comentsItoE
+    public function commentsItoE(){
+        return $this->hasMany('App\Models\CommentitoE');
     }
 }

@@ -12,8 +12,8 @@ class Social_Network extends Model
     protected $table = "social_networks";
     protected $fillable = ['id_influencer', 'facebook', 'twitter', 'instagram', 'youtube', 'snapchat', 'tik_tok', 'kawai', 'pinterest', 'twitch', 'reddit', 'weibo', 'bilibili'];
 
-     //Relation one to one influencer-social_networks
-     public function influencer() {
+    //Relation one to one influencer-social_networks
+    public function influencer() {
         return $this->belongsTo('App\Models\Influencer');
     }
 }

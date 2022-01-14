@@ -16,5 +16,3 @@
 /*Route::get('/', function () {
     return view('loginApp');
 }) ;*/
-
-

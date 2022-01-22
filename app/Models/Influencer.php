@@ -29,6 +29,16 @@ class Influencer extends Model
 
     //Relation one to many influencer-comentsItoE
     public function commentsItoE(){
-        return $this->hasMany('App\Models\CommentitoE');
+        return $this->hasMany('App\Models\CommentItoE');
+    }
+
+    //Relation one to many influencer-comentsEtoI
+    public function commentsetoi(){
+        return $this->hasMany('App\Models\CommentEtoI');
+    }
+
+    //Relation one to many influencer-matches
+    public function coincidences(){
+        return $this->hasMany('App\Models\Coincidence');
     }
 }

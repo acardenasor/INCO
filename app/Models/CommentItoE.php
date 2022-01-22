@@ -24,4 +24,9 @@ class CommentItoE extends Model
         return $this->belongsTo('App/Models/Entrepreneur','id_receiver','id');
     }
 
+    //Relation one to one match-commentitoe (inverse)
+    public function coincidence() {
+        return $this->belongsTo('App\Models\Coincidence');
+    }
+
 }

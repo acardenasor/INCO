@@ -15,6 +15,8 @@ class CommentsItoE extends Migration
     {
         Schema::create('commentsItoE', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_match')->nullable();
+            $table->foreign('id_match')->references('id')->on('coincidences')->onDelete('set null');
             $table->unsignedBigInteger('id_sender')->nullable();
             $table->foreign('id_sender')->references('id')->on('influencers')->onDelete('set null');
             $table->unsignedBigInteger('id_receiver')->nullable();

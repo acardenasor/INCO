@@ -14,6 +14,11 @@ class InfluencerController extends Controller
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
         $id_user = $content->user->id;
+        $id_role = $content->user->role;
+
+        if ($id_role == 1) {
+            return response()->json(['response' => 'You are not an influencer!'], 400);
+        }
 
         $new_description = $request->description;
         $new_category = $request->category;

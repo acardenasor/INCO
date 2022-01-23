@@ -68,7 +68,7 @@ class InfluencerController extends Controller
         return response()->json($influencer);
     }
 
-    public function getInformartionInfluencer(){
+    public function getInformationInfluencer(){
 
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();

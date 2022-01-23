@@ -13,22 +13,23 @@ class CoincidenceController extends Controller
 {
     public function createMatch(Request $request)
     {
-        $name_user = $request->name_user;
+        $id_user = $request->id_user;
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
         $role = $content->user->role;
-        $receiver = User::where('name_user', $name_user)->first();
+        $receiver = User::where('id', $id_user)->first();
 
         if (is_null($receiver)) {
             return response()->json(['response' => 'The other user does not exist'], 400);
         }
 
         $creator = Role::where('id', $role)->first();
-        $id_creator = $creator->id;
 
         if (is_null($creator)) {
             return response()->json(['response' => 'Role does not exist'], 400);
         }
+
+        $id_creator = $creator->id;
 
         if($id_creator == 1){
             $entrepreneur = Entrepreneur::where('id_user', $content->user->id)->first();
@@ -57,10 +58,10 @@ class CoincidenceController extends Controller
     {
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
-        $name_user = $request->name_user;
+        $name_user =$request->name_user;
         $response = $request->response;
+        $id = $request->id;
         $sender = User::where('name_user', $name_user)->first();
-
 
         if (is_null($sender)) {
             return response()->json(['response' => 'User does not exist'], 400);
@@ -97,7 +98,7 @@ class CoincidenceController extends Controller
             }
         }
 
-        $match = Coincidence::where('id_influencer', $influencer->id)->where('id_entrepreneur', $entrepreneur->id)->where('completed', false)->first();
+        $match = Coincidence::where('id', $id)->where('completed', false)->first();
 
         if (is_null($match) ) {
             return response()->json(['response' => 'This match does not exist'], 404);
@@ -124,11 +125,17 @@ class CoincidenceController extends Controller
         if($role == 1){
             $entrepreneur= Entrepreneur::where('id_user', $id)->first();
             $id_entrepreneur = $entrepreneur->id;
-            $match = Coincidence::where('id_entrepreneur', $id_entrepreneur)->where('completed', true)->where('accepted', true)->get();
+            $match = User::join('influencers', 'influencers.id_user', '=', 'users.id')
+                ->join('coincidences', 'coincidences.id_influencer', '=', 'influencers.id')
+                ->where('id_entrepreneur', $id_entrepreneur)->where('completed', true)->where('accepted', true)
+                ->select('coincidences.id','name_user','id_user','id_entrepreneur', 'id_influencer', 'creator')->get();
         }else{
             $influencer = Influencer::where('id_user', $id)->first();
             $id_influencer = $influencer->id;
-            $match = Coincidence::where('id_influencer', $id_influencer)->where('completed', true)->where('accepted', true)->get();
+            $match = User::join('entrepreneurs', 'entrepreneurs.id_user', '=', 'users.id')
+                ->join('coincidences', 'coincidences.id_entrepreneur', '=', 'entrepreneurs.id')
+                ->where('id_influencer', $id_influencer)->where('completed', true)->where('accepted', true)
+                ->select('coincidences.id','name_user','id_user','id_entrepreneur', 'id_influencer', 'creator')->get();
         }
 
         if (is_null($match) ) {
@@ -148,17 +155,22 @@ class CoincidenceController extends Controller
         if($role == 1){
             $entrepreneur= Entrepreneur::where('id_user', $id)->first();
             $id_entrepreneur = $entrepreneur->id;
-            $match = Coincidence::where('id_entrepreneur', $id_entrepreneur)->where('creator', 2)->where('completed', false)->get();
+            $match = User::join('influencers', 'influencers.id_user', '=', 'users.id')
+                ->join('coincidences', 'coincidences.id_influencer', '=', 'influencers.id')
+                ->where('id_entrepreneur', $id_entrepreneur)->where('creator', 2)->where('completed', false)
+                ->select('coincidences.id','name_user','id_user','id_entrepreneur', 'id_influencer', 'creator')->get();
         }else{
             $influencer = Influencer::where('id_user', $id)->first();
             $id_influencer = $influencer->id;
-            $match = Coincidence::where('id_influencer', $id_influencer)->where('creator', 1)->where('completed', false)->get();
+            $match = User::join('entrepreneurs', 'entrepreneurs.id_user', '=', 'users.id')
+                ->join('coincidences', 'coincidences.id_entrepreneur', '=', 'entrepreneurs.id')
+                ->where('id_influencer', $id_influencer)->where('creator', 1)->where('completed', false)
+                ->select('coincidences.id','name_user','id_user','id_entrepreneur', 'id_influencer', 'creator')->get();
         }
 
         if (is_null($match) ) {
             return response()->json(['response' => 'You have no matches'], 404);
         }
-
         return response()->json(compact('match'));
     }
 
@@ -172,11 +184,17 @@ class CoincidenceController extends Controller
         if($role == 1){
             $entrepreneur= Entrepreneur::where('id_user', $id)->first();
             $id_entrepreneur = $entrepreneur->id;
-            $match = Coincidence::where('id_entrepreneur', $id_entrepreneur)->where('creator', 1)->where('completed', false)->get();
+            $match = User::join('influencers', 'influencers.id_user', '=', 'users.id')
+                ->join('coincidences', 'coincidences.id_influencer', '=', 'influencers.id')
+                ->where('id_entrepreneur', $id_entrepreneur)->where('creator', 1)->where('completed', false)
+                ->select('coincidences.id','name_user','id_user','id_entrepreneur', 'id_influencer', 'creator')->get();
         }else{
             $influencer = Influencer::where('id_user', $id)->first();
             $id_influencer = $influencer->id;
-            $match = Coincidence::where('id_influencer', $id_influencer)->where('creator', 2)->where('completed', false)->get();
+            $match = User::join('entrepreneurs', 'entrepreneurs.id_user', '=', 'users.id')
+                ->join('coincidences', 'coincidences.id_entrepreneur', '=', 'entrepreneurs.id')
+                ->where('id_influencer', $id_influencer)->where('creator', 2)->where('completed', false)
+                ->select('coincidences.id','name_user','id_user','id_entrepreneur', 'id_influencer', 'creator')->get();
         }
 
         if (is_null($match) ) {

@@ -114,7 +114,7 @@ class CoincidenceController extends Controller
         return response()->json(['response' => 'Coincidence has been completed!'], 201);
     }
 
-    public function getMatches()
+    public function getMatchesRealised()
     {
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
@@ -124,11 +124,59 @@ class CoincidenceController extends Controller
         if($role == 1){
             $entrepreneur= Entrepreneur::where('id_user', $id)->first();
             $id_entrepreneur = $entrepreneur->id;
-            $match = Coincidence::where('id_entrepreneur', $id_entrepreneur)->where('completed', true)->get();
+            $match = Coincidence::where('id_entrepreneur', $id_entrepreneur)->where('completed', true)->where('accepted', true)->get();
         }else{
             $influencer = Influencer::where('id_user', $id)->first();
             $id_influencer = $influencer->id;
-            $match = Coincidence::where('id_influencer', $id_influencer)->where('completed', true)->get();
+            $match = Coincidence::where('id_influencer', $id_influencer)->where('completed', true)->where('accepted', true)->get();
+        }
+
+        if (is_null($match) ) {
+            return response()->json(['response' => 'You have no matches'], 404);
+        }
+
+        return response()->json(compact('match'));
+    }
+
+    public function getMatchesRequest()
+    {
+        $user = UserController::getAuthenticatedUser();
+        $content = $user->getData();
+        $id = $content->user->id;
+        $role = $content->user->role;
+
+        if($role == 1){
+            $entrepreneur= Entrepreneur::where('id_user', $id)->first();
+            $id_entrepreneur = $entrepreneur->id;
+            $match = Coincidence::where('id_entrepreneur', $id_entrepreneur)->where('creator', 2)->where('completed', false)->get();
+        }else{
+            $influencer = Influencer::where('id_user', $id)->first();
+            $id_influencer = $influencer->id;
+            $match = Coincidence::where('id_influencer', $id_influencer)->where('creator', 1)->where('completed', false)->get();
+        }
+
+        if (is_null($match) ) {
+            return response()->json(['response' => 'You have no matches'], 404);
+        }
+
+        return response()->json(compact('match'));
+    }
+
+    public function getMatchesWaiting()
+    {
+        $user = UserController::getAuthenticatedUser();
+        $content = $user->getData();
+        $id = $content->user->id;
+        $role = $content->user->role;
+
+        if($role == 1){
+            $entrepreneur= Entrepreneur::where('id_user', $id)->first();
+            $id_entrepreneur = $entrepreneur->id;
+            $match = Coincidence::where('id_entrepreneur', $id_entrepreneur)->where('creator', 1)->where('completed', false)->get();
+        }else{
+            $influencer = Influencer::where('id_user', $id)->first();
+            $id_influencer = $influencer->id;
+            $match = Coincidence::where('id_influencer', $id_influencer)->where('creator', 2)->where('completed', false)->get();
         }
 
         if (is_null($match) ) {

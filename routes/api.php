@@ -30,7 +30,9 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('influencer/information', [InfluencerController::class, 'getInformartionInfluencer'])->name('get-user');
     Route::get('company', [CompanyController::class, 'getCompany'])->name('get-company');
     Route::get('influencer', [InfluencerController::class, 'getInfluencer'])->name('get-influencer');
-    Route::get('matches', [CoincidenceController::class, 'getMatches'])->name('get-matches');
+    Route::get('matches/realised', [CoincidenceController::class, 'getMatchesRealised'])->name('get-matches-realised');
+    Route::get('matches/request', [CoincidenceController::class, 'getMatchesRequest'])->name('get-matches-request');
+    Route::get('matches/waiting', [CoincidenceController::class, 'getMatchesWaiting'])->name('get-matches-waiting');
     Route::post('company/update', [CompanyController::class, 'updateCompany'])->name('update-company');
     Route::post('company/register', [CompanyController::class, 'registerCompany'])->name('register-company');
     Route::post('influencer/register', [InfluencerController::class, 'registerInfluencer'])->name('register-influencer');

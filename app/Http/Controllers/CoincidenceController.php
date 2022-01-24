@@ -34,9 +34,26 @@ class CoincidenceController extends Controller
         if($id_creator == 1){
             $entrepreneur = Entrepreneur::where('id_user', $content->user->id)->first();
             $influencer = Influencer::where('id_user', $receiver->id)->first();
+
+            if (is_null($influencer) ) {
+                return response()->json(['response' => 'The other user is not an influencer or does not exist'], 404);
+            }
+
+            if (is_null($entrepreneur) ) {
+                return response()->json(['response' => 'You are not an entrepreneur'], 404);
+            }
+
         }else{
             $entrepreneur = Entrepreneur::where('id_user', $receiver->id)->first();
             $influencer = Influencer::where('id_user', $content->user->id)->first();
+
+            if (is_null($influencer) ) {
+                return response()->json(['response' => 'You are not an influencer'], 404);
+            }
+
+            if (is_null($entrepreneur) ) {
+                return response()->json(['response' => 'The other user is not an entrepreneur or does not exist'], 404);
+            }
         }
 
         $id_entrepreneur = $entrepreneur->id;

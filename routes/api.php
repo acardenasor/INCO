@@ -4,6 +4,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InfluencerController;
+use App\Http\Controllers\CoincidenceController;
 use App\Http\Controllers\TypeEntrepreneurController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -26,13 +27,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('user', [UserController::class, 'getAuthenticatedUser'])->name('get-user');
-    Route::get('influencer/information', [InfluencerController::class, 'getInformartionInfluencer'])->name('get-user');
+    Route::get('influencer/information', [InfluencerController::class, 'getInformationInfluencer'])->name('get-user');
     Route::get('company', [CompanyController::class, 'getCompany'])->name('get-company');
     Route::get('influencer', [InfluencerController::class, 'getInfluencer'])->name('get-influencer');
+    Route::get('matches/realised', [CoincidenceController::class, 'getMatchesRealised'])->name('get-matches-realised');
+    Route::get('matches/request', [CoincidenceController::class, 'getMatchesRequest'])->name('get-matches-request');
+    Route::get('matches/waiting', [CoincidenceController::class, 'getMatchesWaiting'])->name('get-matches-waiting');
     Route::post('company/update', [CompanyController::class, 'updateCompany'])->name('update-company');
     Route::post('company/register', [CompanyController::class, 'registerCompany'])->name('register-company');
     Route::post('influencer/register', [InfluencerController::class, 'registerInfluencer'])->name('register-influencer');
     Route::post('influencer/update', [InfluencerController::class, 'updateUser'])->name('update-user');
+    Route::post('create/match', [CoincidenceController::class, 'createMatch'])->name('create-match');
+    Route::post('answer/match', [CoincidenceController::class, 'answerMatch'])->name('answer-match');
 });
 
 Route::group(['middleware' => ['cors']], function () {
@@ -44,4 +50,6 @@ Route::group(['middleware' => ['cors']], function () {
     Route::get('typesEntrepreneurs', [TypeEntrepreneurController::class, 'getTypeEntrepreneur'])->name('get-type-entrepreneu');
     Route::post('influencerFile', [InfluencerController::class, 'file1']);
     Route::post('companyFile', [CompanyController::class, 'file1']);
+    Route::get('typesEntrepreneurs', [TypeEntrepreneurController::class, 'getTypeEntrepreneur'])->name('get-type-entrepreneur');
+
 });

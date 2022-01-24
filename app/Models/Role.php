@@ -15,4 +15,9 @@ class Role extends Model
     public function users(){
         return $this->hasMany('App\Models\User');
     }
+
+    //Relation one to many role-users
+    public function matches(){
+        return $this->hasMany('App\Models\Coincidence');
+    }
 }

@@ -23,4 +23,9 @@ class CommentEtoI extends Model
     {
         return $this->belongsTo('App/Models/Entrepreneur','id_sender','id');
     }
+
+    //Relation one to one match-commentetoi (inverse)
+    public function coincidence() {
+        return $this->belongsTo('App\Models\Coincidence');
+    }
 }

@@ -24,6 +24,16 @@ class Entrepreneur extends Model
 
     //Relation one to many entrepreneur-comentsItoE
     public function commentsItoE(){
-        return $this->hasMany('App\Models\CommentitoE');
+        return $this->hasMany('App\Models\CommentItoE');
+    }
+
+    //Relation one to many influencer-comentsEtoI
+    public function commentsetoi(){
+        return $this->hasMany('App\Models\CommentEtoI');
+    }
+
+    //Relation one to many entrepreneur-matches
+    public function coincidences(){
+        return $this->hasMany('App\Models\Coincidence');
     }
 }

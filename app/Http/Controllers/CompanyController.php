@@ -40,6 +40,11 @@ class CompanyController extends Controller
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
         $id_user = $content->user->id;
+        $id_role = $content->user->role;
+
+        if ($id_role == 2) {
+            return response()->json(['response' => 'You are not an entrepreneur!'], 400);
+        }
 
         $company = Company::create([
             'name' => $request->get('name'),

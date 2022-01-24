@@ -13,7 +13,7 @@ class User extends Model implements JWTSubject, AuthenticatableContract
     use HasFactory, Authenticatable;
 
     protected $table = "users";
-    protected $fillable = ['name_user', 'name', 'last_name', 'unencrypted_password', 'password', 'gender', 'email', 'CC', 'role'];
+    protected $fillable = ['name_user', 'name', 'last_name', 'unencrypted_password', 'password', 'gender','profile_picture', 'email', 'CC', 'role'];
 
     //Relation one to many role-users (inverse)
     public function role()

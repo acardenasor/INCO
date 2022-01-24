@@ -10,7 +10,7 @@ class Influencer extends Model
     use HasFactory;
 
     protected $table = "influencers";
-    protected $fillable = ['id_user', 'category', 'description'];
+    protected $fillable = ['id_user', 'category', 'description','photos'];
 
     //Relation one to one user-influencer
     public function user() {

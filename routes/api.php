@@ -47,5 +47,9 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('user/register', [UserController::class, 'register'])->name('register-user');
     Route::post('user/forgot-password', [MailController::class, 'send'])->name('send-mail');
     Route::get('categories', [CategoryController::class, 'getCategory'])->name('get-category');
+    Route::get('typesEntrepreneurs', [TypeEntrepreneurController::class, 'getTypeEntrepreneur'])->name('get-type-entrepreneu');
+    Route::post('influencerFile', [InfluencerController::class, 'file1']);
+    Route::post('companyFile', [CompanyController::class, 'file1']);
     Route::get('typesEntrepreneurs', [TypeEntrepreneurController::class, 'getTypeEntrepreneur'])->name('get-type-entrepreneur');
+
 });

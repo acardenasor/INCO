@@ -114,4 +114,24 @@ class CompanyController extends Controller
 
         return response()->json(['response' => 'Updated information!'], 201);
     }
+
+    public function file1(Request $request){
+        //$foto = new ElectionNomination;
+        if($request->hasFile('Main_file')){
+            $name_file = $request->file('Main_file')->getClientOriginalName();
+            $path = $request->file('Main_file')->storeAs('public/company_profile',$name_file);
+            $data=array(
+         
+                'path'=>$path, 
+                'status'=>'success'
+            );
+            return response()->json($data,200);
+            //$foto->Main_file = $name_file;
+        }
+        // if($foto->save()){
+        //     return ['status'=> true, 'message'=> 'Archivo subido exitosamente'];
+        // }else{
+        //     return ['status'=> false, 'message'=> 'Ha ocurrido un error'];
+        // }
+    }
 }

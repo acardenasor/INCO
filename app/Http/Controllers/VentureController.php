@@ -7,6 +7,7 @@ use App\Models\Influencer;
 use App\Models\Venture;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VentureController extends Controller
 {
@@ -85,5 +86,15 @@ class VentureController extends Controller
         $venture->delete();
 
         return response()->json(['response' => 'Venture has been eliminated!'], 200);
+    }
+    public function list(){
+        return Venture::all();
+
+        // $result = DB::table('incobasedatos1.users')
+        // ->join('incobasedatos1.influencers', 'influencers.id_user', '=', 'users.id')
+        // ->select('*')
+        // ->get();
+
+        // return $result;
     }
 }

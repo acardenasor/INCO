@@ -153,4 +153,7 @@ class UserController extends Controller
         //     return ['status'=> false, 'message'=> 'Ha ocurrido un error'];
         // }
     }
+    public function list(){
+        return User::all();
+    }
 }

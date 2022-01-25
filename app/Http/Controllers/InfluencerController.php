@@ -171,15 +171,24 @@ class InfluencerController extends Controller
             $user-> profile_picture = $name_file;
             $user-> save();
 
-            return response()->json($data,200);
-        }else{
-            return ['status'=> false, 'message'=> 'Ha ocurrido un error'];
-        }
+            return response()->json($data,200);}
+        // }else{
+        //     return ['status'=> false, 'message'=> 'Ha ocurrido un error'];
+        // }
 
         // if($foto->save()){
         //     return ['status'=> true, 'message'=> 'Archivo subido exitosamente'];
         // }else{
         //     return ['status'=> false, 'message'=> 'Ha ocurrido un error'];
         // }
+    }
+
+    public function list(){
+        $result = DB::table('incobasedatos1.users')
+        ->join('incobasedatos1.influencers', 'influencers.id_user', '=', 'users.id')
+        ->select('*')
+        ->get();
+
+        return $result;
     }
 }

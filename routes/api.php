@@ -8,6 +8,7 @@ use App\Http\Controllers\CoincidenceController;
 use App\Http\Controllers\TypeEntrepreneurController;
 use App\Http\Controllers\VentureController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VentureController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('influencers', [InfluencerController::class, 'list']);
+Route::get('ventures', [VentureController::class, 'list']);
+
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('user', [UserController::class, 'getAuthenticatedUser'])->name('get-user');
@@ -57,5 +62,6 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('influencerFile', [InfluencerController::class, 'file1']);
     Route::post('companyFile', [CompanyController::class, 'file1']);
     Route::get('typesEntrepreneurs', [TypeEntrepreneurController::class, 'getTypeEntrepreneur'])->name('get-type-entrepreneur');
+    Route::post('venture/register', [VentureController::class, 'createVenture'])->name('createVenture');
 
 });

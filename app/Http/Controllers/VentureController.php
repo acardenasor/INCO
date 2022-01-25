@@ -25,6 +25,11 @@ class VentureController extends Controller
         }
 
         $entrepreneur = Entrepreneur::where('id_user', $id_user)->first();
+
+        if (is_null($entrepreneur) ) {
+            return response()->json(['response' => 'You are not an entrepreneur'], 404);
+        }
+
         $id_entrepreneur = $entrepreneur->id;
 
         Venture::create([
@@ -37,10 +42,19 @@ class VentureController extends Controller
 
     public function editVenture(Request $request)
     {
-        $id_venture = $request->id;
+        $user = UserController::getAuthenticatedUser();
+        $content = $user->getData();
+        $id_user = $content->user->id;
+        $entrepreneur = Entrepreneur::where('id_user', $id_user)->first();
 
+        if (is_null($entrepreneur) ) {
+            return response()->json(['response' => 'You are not an entrepreneur'], 404);
+        }
+
+        $id_venture = $request->id;
         $new_name = $request->name;
         $new_description = $request->description;
+
 
         if (is_null($new_description) || is_null($new_name)) {
             return response()->json(['response' => 'It is necessary to fill in all the fields'], 400);
@@ -62,7 +76,7 @@ class VentureController extends Controller
 
     public function getVenture($id)
     {
-        $venture = Influencer::where('id', $id)->first();
+        $venture = Venture::where('id', $id)->first();
 
         if (is_null($venture)) {
             return response()->json(['response' => 'Venture does not exist!'], 400);
@@ -76,6 +90,11 @@ class VentureController extends Controller
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
         $id_user = $content->user->id;
+        $entrepreneur = Entrepreneur::where('id_user', $id_user)->first();
+
+        if (is_null($entrepreneur) ) {
+            return response()->json(['response' => 'You are not an entrepreneur'], 404);
+        }
 
         $venture = Venture::where('id', $id)->first();
 

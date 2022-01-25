@@ -157,7 +157,7 @@ class InfluencerController extends Controller
         //$foto = new ElectionNomination;
         if($request->hasFile('photos')){
             $name_file = $request->file('photos')->getClientOriginalName();
-            $path = $request->file('photos')->storeAs('public/pictures',$name_file);
+            $path = $request->file('photos')->storeAs('public/storage',$name_file);
             $data=array(
 
                 'path'=>$path,

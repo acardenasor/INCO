@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InfluencerController;
 use App\Http\Controllers\CoincidenceController;
 use App\Http\Controllers\TypeEntrepreneurController;
+use App\Http\Controllers\VentureController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VentureController;
 use Illuminate\Http\Request;
@@ -44,6 +45,11 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('influencer/update', [InfluencerController::class, 'updateUser'])->name('update-user');
     Route::post('create/match', [CoincidenceController::class, 'createMatch'])->name('create-match');
     Route::post('answer/match', [CoincidenceController::class, 'answerMatch'])->name('answer-match');
+    Route::post('create/venture', [VentureController::class, 'createVenture'])->name('create-venture');
+    Route::post('edit/venture', [VentureController::class, 'editVenture'])->name('edit-venture');
+    Route::post('edit/venture', [VentureController::class, 'editVenture'])->name('edit-venture');
+    Route::post('delete/venture', [VentureController::class, 'deleteVenture'])->name('delete-venture');
+    Route::post('venture', [VentureController::class, 'getVenture'])->name('get-venture');
 });
 
 Route::group(['middleware' => ['cors']], function () {

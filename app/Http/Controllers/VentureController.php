@@ -33,7 +33,7 @@ class VentureController extends Controller
         $id_entrepreneur = $entrepreneur->id;
 
         Venture::create([
-            'id_user' => $id_entrepreneur,
+            'id_entrepreneur' => $id_entrepreneur,
             'name' => $request->get('name'),
             'description' => $request->get('description'),
         ]);
@@ -109,7 +109,7 @@ class VentureController extends Controller
     public function list(){
         return Venture::all();
 
-        // $result = DB::table('incobasedatos1.users')
+        //$result = DB::table('incobasedatos1.users')
         // ->join('incobasedatos1.influencers', 'influencers.id_user', '=', 'users.id')
         // ->select('*')
         // ->get();

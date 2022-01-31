@@ -46,9 +46,9 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('answer/match', [CoincidenceController::class, 'answerMatch'])->name('answer-match');
     Route::post('create/venture', [VentureController::class, 'createVenture'])->name('create-venture');
     Route::post('edit/venture', [VentureController::class, 'editVenture'])->name('edit-venture');
-    Route::post('edit/venture', [VentureController::class, 'editVenture'])->name('edit-venture');
     Route::post('delete/venture', [VentureController::class, 'deleteVenture'])->name('delete-venture');
-    Route::post('venture', [VentureController::class, 'getVenture'])->name('get-venture');
+    Route::get('venture', [VentureController::class, 'getVenture'])->name('get-venture');
+    Route::get('collaborations', [VentureController::class, 'list'])->name('get-collaboration');
 });
 
 Route::group(['middleware' => ['cors']], function () {
@@ -61,6 +61,6 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('influencerFile', [InfluencerController::class, 'file1']);
     Route::post('companyFile', [CompanyController::class, 'file1']);
     Route::get('typesEntrepreneurs', [TypeEntrepreneurController::class, 'getTypeEntrepreneur'])->name('get-type-entrepreneur');
-    Route::post('venture/register', [VentureController::class, 'createVenture'])->name('createVenture');
+
 
 });

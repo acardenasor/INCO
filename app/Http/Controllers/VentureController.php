@@ -23,7 +23,6 @@ class VentureController extends Controller
         if (is_null($description) || is_null($name)) {
             return response()->json(['response' => 'It is necessary to fill in all the fields'], 400);
         }
-
         $entrepreneur = Entrepreneur::where('id_user', $id_user)->first();
 
         if (is_null($entrepreneur) ) {
@@ -42,7 +41,7 @@ class VentureController extends Controller
 
     public function editVenture(Request $request)
     {
-        $user = UserController::getAuthenticatedUser();
+        $user = UserController::g                                                                                                            ();
         $content = $user->getData();
         $id_user = $content->user->id;
         $entrepreneur = Entrepreneur::where('id_user', $id_user)->first();
@@ -106,7 +105,18 @@ class VentureController extends Controller
 
         return response()->json(['response' => 'Venture has been eliminated!'], 200);
     }
-    public function list(){
+    public function getVentures(){
+        return Venture::all();
+
+        //$result = DB::table('incobasedatos1.users')
+        // ->join('incobasedatos1.influencers', 'influencers.id_user', '=', 'users.id')
+        // ->select('*')
+        // ->get();
+
+        // return $result;
+    }
+
+    public function getVentureCategory($id){
         return Venture::all();
 
         //$result = DB::table('incobasedatos1.users')

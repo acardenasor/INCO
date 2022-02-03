@@ -48,7 +48,8 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('edit/venture', [VentureController::class, 'editVenture'])->name('edit-venture');
     Route::post('delete/venture', [VentureController::class, 'deleteVenture'])->name('delete-venture');
     Route::get('venture', [VentureController::class, 'getVenture'])->name('get-venture');
-    Route::get('collaborations', [VentureController::class, 'getVentures'])->name('get-collaboration');
+    Route::get('collaborations', [VentureController::class, 'getVentures'])->name('get-collaborations');
+    Route::post('ventures/category', [VentureController::class, 'getVenturesCategory'])->name('get-ventures-category');
 });
 
 Route::group(['middleware' => ['cors']], function () {

@@ -46,6 +46,12 @@ class CompanyController extends Controller
             return response()->json(['response' => 'You are not an entrepreneur!'], 400);
         }
 
+        $old_company = Entrepreneur:: where('id_user', $id_user)->first();
+
+        if(!is_null($old_company)){
+            return response()->json(['response' => 'You already have a company!'], 400);
+        }
+
         $company = Company::create([
             'name' => $request->get('name'),
             'description' => $request->get('description'),
@@ -121,8 +127,8 @@ class CompanyController extends Controller
             $name_file = $request->file('Main_file')->getClientOriginalName();
             $path = $request->file('Main_file')->storeAs('public/company_profile',$name_file);
             $data=array(
-         
-                'path'=>$path, 
+
+                'path'=>$path,
                 'status'=>'success'
             );
             return response()->json($data,200);

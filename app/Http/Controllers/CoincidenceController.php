@@ -16,7 +16,7 @@ class CoincidenceController extends Controller
     {
 
         $id_user = $request->id_user;
-        $id_venture = - 1;
+        $id_venture = null;
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
         $role = $content->user->role;

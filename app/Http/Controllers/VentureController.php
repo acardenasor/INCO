@@ -109,7 +109,7 @@ class VentureController extends Controller
     public function getVentures(){
         $result = User::join('entrepreneurs', 'entrepreneurs.id_user', '=', 'users.id')
             ->join('ventures', 'ventures.id_entrepreneur', '=', 'entrepreneurs.id')
-            ->select('ventures.id AS id_venture','ventures.name','ventures.description','ventures.id_entrepreneur', 'users.id AS id_user')->get();
+            ->select('ventures.id AS id_venture','ventures.name','ventures.description','ventures.id_entrepreneur', 'users.id AS id_user', 'users.name_user')->get();
 
         if(is_null($result)){
             return response()->json(['response' => 'There are no ventures'], 404);

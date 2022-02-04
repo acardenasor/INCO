@@ -124,7 +124,7 @@ class VentureController extends Controller
             ->join('ventures', 'ventures.id_entrepreneur', '=', 'entrepreneurs.id')
             ->join('companies', 'companies.id', '=', 'entrepreneurs.id_company')
             ->where('companies.category', $id)
-            ->select('companies.category','ventures.id AS id_venture','ventures.name','ventures.description','ventures.id_entrepreneur', 'users.id AS id_user')->get();
+            ->select('companies.category','ventures.id AS id_venture','ventures.name','ventures.description','ventures.id_entrepreneur', 'users.id AS id_user', 'users.name_user')->get();
         $num = $result->lengths;
         if($num == 0){
             echo "entre";

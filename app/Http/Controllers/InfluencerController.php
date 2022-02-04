@@ -183,12 +183,15 @@ class InfluencerController extends Controller
         // }
     }
 
-    public function list(){
-        $result = DB::table('incobasedatos1.users')
-        ->join('incobasedatos1.influencers', 'influencers.id_user', '=', 'users.id')
-        ->select('*')
-        ->get();
+    public function getInfluencers(){
+        $result = User::join('influencers', 'influencers.id_user', '=', 'users.id')
+            ->join('categories', 'categories.id', '=', 'influencers.category')
+            ->select('influencers.id AS id','users.name_user','influencers.description','influencers.category', 'categories.name', 'users.id AS id_user')->get();
 
-        return $result;
+        if(is_null($result)){
+            return response()->json(['response' => 'There are no ventures'], 404);
+        }else{
+            return $result;
+        }
     }
 }

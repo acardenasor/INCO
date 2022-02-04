@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('influencers', [InfluencerController::class, 'list']);
+Route::get('influencers', [InfluencerController::class, 'getInfluencers']);
 Route::get('ventures', [VentureController::class, 'list']);
 
 

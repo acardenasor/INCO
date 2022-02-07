@@ -10,7 +10,7 @@ class Coincidence extends Model
     use HasFactory;
 
     protected $table = "coincidences";
-    protected $fillable = ['id_entrepreneur', 'id_influencer', 'creator', 'accepted', 'completed', 'graded'];
+    protected $fillable = ['id_entrepreneur', 'id_influencer', 'id_venture', 'creator', 'accepted', 'completed', 'active', 'graded'];
 
     //Relation one to many influencer-matches (inverse)
     public function influencer()
@@ -40,5 +40,10 @@ class Coincidence extends Model
     public function role()
     {
         return $this->belongsTo('App/Models/Role');
+    }
+
+    //Relation one to one venture-match (inverse)
+    public function venture() {
+        return $this->belongsTo('App\Models\Venture');
     }
 }

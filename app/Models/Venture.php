@@ -18,4 +18,10 @@ class Venture extends Model
     {
         return $this->belongsTo('App/Models/Entrepreneur');
     }
+
+    //Relation one to one venture-match
+    public function coincidence()
+    {
+        return $this->hasOne('App\Models\Coincidence', 'id_venture', 'id');
+    }
 }

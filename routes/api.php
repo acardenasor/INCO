@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('influencers', [InfluencerController::class, 'list']);
+Route::get('influencers', [InfluencerController::class, 'getInfluencers']);
 Route::get('ventures', [VentureController::class, 'list']);
 Route::get('influencer/{id}', [InfluencerController::class, 'getInfluencerByID']);
 
@@ -51,6 +51,8 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('venture/{id}', [VentureController::class, 'getVenture'])->name('get-venture');
     Route::get('collaborations', [VentureController::class, 'getVentures'])->name('get-collaboration');
     Route::get('socialNetworks', [InfluencerController::class, 'getSocialNetworks'])->name('get-Social-Networks');
+    Route::post('ventures/category', [VentureController::class, 'getVenturesCategory'])->name('get-ventures-category');
+
 
 });
 

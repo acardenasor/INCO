@@ -7,13 +7,16 @@ use App\Models\Influencer;
 use App\Models\Coincidence;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Venture;
 use Illuminate\Http\Request;
 
 class CoincidenceController extends Controller
 {
     public function createMatch(Request $request)
     {
+
         $id_user = $request->id_user;
+        $id_venture = null;
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
         $role = $content->user->role;
@@ -54,17 +57,41 @@ class CoincidenceController extends Controller
             if (is_null($entrepreneur) ) {
                 return response()->json(['response' => 'The other user is not an entrepreneur or does not exist'], 404);
             }
+
+            $check = $request->id_venture;
+
+            if(!is_null($check)){
+                $id_venture = $request->id_venture;
+                $venture = Venture::where('id', $id_venture)->first();
+                if (is_null($venture)) {
+                    return response()->json(['response' => 'That venture does not exist'], 400);
+                }
+            }
         }
 
         $id_entrepreneur = $entrepreneur->id;
         $id_influencer = $influencer->id;
 
+        $old_match = Coincidence::where('id_entrepreneur', $id_entrepreneur)->where('id_influencer', $id_influencer)->where('active', true)->first();
+
+        if (!is_null($old_match)) {
+            return response()->json(['response' => 'You have already matched with this user'], 400);
+        }
+
+        $present_match = Coincidence::where('id_entrepreneur', $id_entrepreneur)->where('id_influencer', $id_influencer)->where('completed', false)->first();
+
+        if (!is_null($present_match)) {
+            return response()->json(['response' => 'You have already matched with this user'], 400);
+        }
+
         Coincidence::create([
             'id_entrepreneur' => $id_entrepreneur,
             'id_influencer' => $id_influencer,
+            'id_venture' => $id_venture,
             'creator' => $id_creator,
             'accepted' => false,
             'completed' => false,
+            'active' => false,
             'graded' => false,
         ]);
 
@@ -123,6 +150,7 @@ class CoincidenceController extends Controller
 
         if($response == 1){
             $match->accepted = true;
+            $match->active = true;
         }
 
         $match->completed = true;
@@ -144,14 +172,14 @@ class CoincidenceController extends Controller
             $id_entrepreneur = $entrepreneur->id;
             $match = User::join('influencers', 'influencers.id_user', '=', 'users.id')
                 ->join('coincidences', 'coincidences.id_influencer', '=', 'influencers.id')
-                ->where('id_entrepreneur', $id_entrepreneur)->where('completed', true)->where('accepted', true)
+                ->where('id_entrepreneur', $id_entrepreneur)->where('completed', true)->where('accepted', true)->where('active', true)
                 ->select('coincidences.id','name_user','id_user','id_entrepreneur', 'id_influencer', 'creator')->get();
         }else{
             $influencer = Influencer::where('id_user', $id)->first();
             $id_influencer = $influencer->id;
             $match = User::join('entrepreneurs', 'entrepreneurs.id_user', '=', 'users.id')
                 ->join('coincidences', 'coincidences.id_entrepreneur', '=', 'entrepreneurs.id')
-                ->where('id_influencer', $id_influencer)->where('completed', true)->where('accepted', true)
+                ->where('id_influencer', $id_influencer)->where('completed', true)->where('accepted', true)->where('active', true)
                 ->select('coincidences.id','name_user','id_user','id_entrepreneur', 'id_influencer', 'creator')->get();
         }
 

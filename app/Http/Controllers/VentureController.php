@@ -105,25 +105,32 @@ class VentureController extends Controller
 
         return response()->json(['response' => 'Venture has been eliminated!'], 200);
     }
+
     public function getVentures(){
-        return Venture::all();
+        $result = User::join('entrepreneurs', 'entrepreneurs.id_user', '=', 'users.id')
+            ->join('ventures', 'ventures.id_entrepreneur', '=', 'entrepreneurs.id')
+            ->select('ventures.id AS id_venture','ventures.name','ventures.description','ventures.id_entrepreneur', 'users.id AS id_user', 'users.name_user')->get();
 
-        //$result = DB::table('incobasedatos1.users')
-        // ->join('incobasedatos1.influencers', 'influencers.id_user', '=', 'users.id')
-        // ->select('*')
-        // ->get();
-
-        // return $result;
+        if(is_null($result)){
+            return response()->json(['response' => 'There are no ventures'], 404);
+        }else{
+            return $result;
+        }
     }
 
-    public function getVentureCategory($id){
-        return Venture::all();
-
-        //$result = DB::table('incobasedatos1.users')
-        // ->join('incobasedatos1.influencers', 'influencers.id_user', '=', 'users.id')
-        // ->select('*')
-        // ->get();
-
-        // return $result;
+    public function getVenturesCategory(Request $request){
+        $id = $request->id;
+        $result = User::join('entrepreneurs', 'entrepreneurs.id_user', '=', 'users.id')
+            ->join('ventures', 'ventures.id_entrepreneur', '=', 'entrepreneurs.id')
+            ->join('companies', 'companies.id', '=', 'entrepreneurs.id_company')
+            ->where('companies.category', $id)
+            ->select('companies.category','ventures.id AS id_venture','ventures.name','ventures.description','ventures.id_entrepreneur', 'users.id AS id_user', 'users.name_user')->get();
+        $num = $result->lengths;
+        if($num == 0){
+            echo "entre";
+            return response()->json(['response' => 'There are no ventures'], 404);
+        }else{
+            return $result;
+        }
     }
 }

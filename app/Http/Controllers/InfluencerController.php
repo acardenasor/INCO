@@ -191,4 +191,37 @@ class InfluencerController extends Controller
 
         return $result;
     }
+
+    public function getInfluencerByID($id)
+    {
+        $influencer = Influencer::where('id', $id)->first();
+
+        if (is_null($influencer)) {
+            return response()->json(['response' => 'Influencer does not exist!'], 400);
+        }
+        $result = DB::table('incobasedatos1.users')
+        ->join('incobasedatos1.influencers', 'influencers.id_user', '=', 'users.id')
+        ->where('influencers.id','=',$id)
+        ->select('*')
+        ->get();
+
+        return $result;
+    }
+
+    public function getSocialNetworks()
+    {
+        $user = UserController::getAuthenticatedUser();
+        $content = $user->getData();
+        $id_user = $content->user->id;
+        $influencer = Influencer::where('id_user', $id_user)->first();
+
+        if (is_null($influencer)) {
+            return response()->json(['response' => 'User is not influencer!'], 400);
+        }
+
+        $id_influencer = $influencer->id;
+        $social_networks = Social_Network::where('id_influencer', $id_influencer)->first();
+
+        return response()->json(compact('social_networks'));
+    }
 }

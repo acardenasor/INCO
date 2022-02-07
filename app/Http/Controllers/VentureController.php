@@ -41,7 +41,7 @@ class VentureController extends Controller
 
     public function editVenture(Request $request)
     {
-        $user = UserController::g                                                                                                            ();
+        $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
         $id_user = $content->user->id;
         $entrepreneur = Entrepreneur::where('id_user', $id_user)->first();

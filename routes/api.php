@@ -29,12 +29,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('influencers', [InfluencerController::class, 'getInfluencers']);
 Route::get('ventures', [VentureController::class, 'list']);
-Route::get('influencer/{id}', [InfluencerController::class, 'getInfluencerByID']);
+//Route::get('influencer/{id}', [InfluencerController::class, 'getInfluencerByID']);
 
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('user', [UserController::class, 'getAuthenticatedUser'])->name('get-user');
-    Route::get('influencer/information', [InfluencerController::class, 'getInformationInfluencer'])->name('get-user');
+    Route::get('influencer/information', [InfluencerController::class, 'getInformationInfluencer'])->name('get-infñ');
     Route::get('company', [CompanyController::class, 'getCompany'])->name('get-company');
     Route::get('influencer', [InfluencerController::class, 'getInfluencer'])->name('get-influencer');
     Route::get('matches/realised', [CoincidenceController::class, 'getMatchesRealised'])->name('get-matches-realised');

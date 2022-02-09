@@ -70,7 +70,6 @@ class InfluencerController extends Controller
     }
 
     public function getInformationInfluencer(){
-
         $user = UserController::getAuthenticatedUser();
         $content = $user->getData();
         $id_user = $content->user->id;
@@ -84,6 +83,19 @@ class InfluencerController extends Controller
         $category=$influencer->category;
 
         return response()->json(compact('description', 'category'));
+    }
+
+    public function getInformationInfluencer2(){
+        $user = UserController::getAuthenticatedUser();
+        $content = $user->getData();
+        $id_user = $content->user->id;
+        $influencer = Influencer::where('id_user', $id_user)->first();
+
+        if (is_null($influencer)) {
+            return response()->json(['response' => 'User not have influencer!'], 400);
+        }
+
+        return response()->json($influencer);
     }
 
     public function updateUser(Request $request)

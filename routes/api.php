@@ -8,6 +8,7 @@ use App\Http\Controllers\CoincidenceController;
 use App\Http\Controllers\TypeEntrepreneurController;
 use App\Http\Controllers\VentureController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,10 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('collaborations', [VentureController::class, 'getVentures'])->name('get-collaboration');
     Route::get('socialNetworks', [InfluencerController::class, 'getSocialNetworks'])->name('get-Social-Networks');
     Route::post('ventures/category', [VentureController::class, 'getVenturesCategory'])->name('get-ventures-category');
+    Route::post('upload/photo/profile', [PhotoController::class, 'uploadPhotoProfile'])->name('upload-photo-profile');
+    Route::post('upload/photo/influencer', [PhotoController::class, 'uploadPhotoInfluencer'])->name('upload-photo-influencer');
+    Route::post('upload/photo/venture', [PhotoController::class, 'uploadPhotoVenture'])->name('upload-photo-venture');
+    Route::post('upload/photo/company', [PhotoController::class, 'uploadPhotoCompany'])->name('upload-photo-company');
 
 
 });

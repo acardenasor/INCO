@@ -153,6 +153,7 @@ class InfluencerController extends Controller
         return response()->json(['response' => 'Updated information!'], 202);
 
     }
+
     public function file1(Request $request){
         //$foto = new ElectionNomination;
         if($request->hasFile('photos')){

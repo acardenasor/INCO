@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Influencer;
 use App\Models\Entrepreneur;
 use App\Models\User;
 use App\Models\Venture;
@@ -11,6 +12,81 @@ use JD\Cloudder\Facades\Cloudder;
 
 class PhotoController extends Controller
 {
+    public function getPhotoProfile(Request $request){
+
+        $user = UserController::getAuthenticatedUser();
+        $content = $user->getData();
+        $id = $content->user->id;
+        $user = User::where('id', $id)->first();
+
+        if (is_null($user)) {
+            return response()->json(['response' => 'The other user does not exist'], 400);
+        }
+        $url = $user-> profile_picture;
+        if (is_null($url )) {
+            return response()->json(['response' => 'The picture user does not exist'], 400);
+        }
+
+        return response()->json(['image' => $url],200);
+    }
+
+    public function getPhotoInfluencer(Request $request){
+
+        $user = UserController::getAuthenticatedUser();
+        $content = $user->getData();
+        $id = $content->user->id;
+        $user = User::where('id', $id)->first();
+
+        if (is_null($user)) {
+            return response()->json(['response' => 'The other user does not exist'], 400);
+        }
+
+        $influencer = Influencer::where('id_user', $id)->first();
+
+        if (is_null($influencer)) {
+            return response()->json(['response' => 'User not have influencer!'], 400);
+        }
+
+        $url = $influencer-> photos;
+        if (is_null($url )) {
+            return response()->json(['response' => 'The picture influencer does not exist'], 400);
+        }
+
+        return response()->json(['image' => $url],200);
+    }
+
+    public function getPhotoCompany(Request $request){
+
+        $user = UserController::getAuthenticatedUser();
+        $content = $user->getData();
+        $id = $content->user->id;
+        $user = User::where('id', $id)->first();
+
+        if (is_null($user)) {
+            return response()->json(['response' => 'The other user does not exist'], 400);
+        }
+
+        $entrepreneur = Entrepreneur::where('id_user', $id)->first();
+        $id_company = $entrepreneur->id_company;
+
+        if (is_null($entrepreneur)) {
+            return response()->json(['response' => 'User not have entrepreneur!'], 400);
+        }
+
+        $company = Company::where('id', $id_company)->first();
+
+        if (is_null($company)) {
+            return response()->json(['response' => 'That company do not exist!'], 400);
+        }
+
+        $url = $company-> company_logo;
+        if (is_null($url )) {
+            return response()->json(['response' => 'The picture influencer does not exist'], 400);
+        }
+
+        return response()->json(['image' => $url],200);
+    }
+
     public function uploadPhotoProfile(Request $request){
 
         if($request->hasFile('photos')){
@@ -49,7 +125,7 @@ class PhotoController extends Controller
 
             $image_path = $request->file('photos')->getRealPath();
 
-            $photo = Cloudder::upload($image_path, null, array("folder" => "inco-influencers", "overwrite" => TRUE, "resource_type" => "image"));
+            $photo = Cloudder::upload($image_path, null, array("folder" => "inco-profiles", "overwrite" => TRUE, "resource_type" => "image"));
 
             $path = $photo->getResult();
 
@@ -87,7 +163,7 @@ class PhotoController extends Controller
 
             $image_path = $request->file('photos')->getRealPath();
 
-            $photo = Cloudder::upload($image_path, null, array("folder" => "inco-influencers", "overwrite" => TRUE, "resource_type" => "image"));
+            $photo = Cloudder::upload($image_path, null, array("folder" => "inco-ventures", "overwrite" => TRUE, "resource_type" => "image"));
 
             $path = $photo->getResult();
 
@@ -131,7 +207,7 @@ class PhotoController extends Controller
 
             $image_path = $request->file('photos')->getRealPath();
 
-            $photo = Cloudder::upload($image_path, null, array("folder" => "inco-influencers", "overwrite" => TRUE, "resource_type" => "image"));
+            $photo = Cloudder::upload($image_path, null, array("folder" => "inco-companies", "overwrite" => TRUE, "resource_type" => "image"));
 
             $path = $photo->getResult();
 

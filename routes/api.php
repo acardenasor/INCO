@@ -53,6 +53,9 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('collaborations', [VentureController::class, 'getVentures'])->name('get-collaboration');
     Route::get('socialNetworks', [InfluencerController::class, 'getSocialNetworks'])->name('get-Social-Networks');
     Route::post('ventures/category', [VentureController::class, 'getVenturesCategory'])->name('get-ventures-category');
+    Route::get('photo/profile', [PhotoController::class, 'getPhotoProfile'])->name('get-photo-profile');
+    Route::get('photo/influencer', [PhotoController::class, 'getPhotoInfluencer'])->name('get-photo-influencer');
+    Route::get('photo/entrepreneur', [PhotoController::class, 'getPhotoCompany'])->name('get-photo-entrepreneur');
     Route::post('upload/photo/profile', [PhotoController::class, 'uploadPhotoProfile'])->name('upload-photo-profile');
     Route::post('upload/photo/influencer', [PhotoController::class, 'uploadPhotoInfluencer'])->name('upload-photo-influencer');
     Route::post('upload/photo/venture', [PhotoController::class, 'uploadPhotoVenture'])->name('upload-photo-venture');
